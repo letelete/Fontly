@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>rsc/maximize.png</file>
         <file>rsc/minimize.png</file>
         <file>rsc/close.png</file>
         <file>rsc/resetSettings.png</file>
@@ -12,6 +11,11 @@
         <file>rsc/settings.png</file>
         <file>rsc/socialFB.png</file>
         <file>rsc/socialGITHUB.png</file>
-        <file>rsc/socialwww.png</file>
+        <file>rsc/addedtofav.png</file>
+        <file>rsc/addedtofolder.png</file>
+        <file>rsc/addtofav.png</file>
+        <file>rsc/addtofolder.png</file>
+        <file>rsc/maximize.png</file>
+        <file>rsc/socialWWW.png</file>
     </qresource>
 </RCC>

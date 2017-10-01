@@ -30,9 +30,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_maximize_clicked()
 {
-    if(this->size().height() == 720)
-        this->resize(QSize(1280, 390));
-
+    if(this->size().height() == 720) {
+        this->resize(QSize(1280, 405));
+    }
     else this->resize(QSize(1280,720));
 
 }
@@ -47,7 +47,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
-    if(event->button() & Qt::LeftButton) {
+    if(event->button() == Qt::LeftButton) {
         move(event->globalPos() - dragPosition);
         event->accept();
     }

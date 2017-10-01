@@ -38,8 +38,26 @@
    <string>Fontly</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">/*start - QPushButton Styling */
+   <string notr="true">/* FONT *
 
+/* app name */
+QLabel#fontlyLabel{
+	font: 57 18pt &quot;Lato Medium&quot;;
+}
+/* sections */
+QLabel#menuLabel , QLabel#socialLabel {
+	font: 63 14pt &quot;Lato Semibold&quot;;
+}
+/* subsections */
+QLabel#fontPickerLabel, QLabel#myFontsLabel, QLabel#settingsLabel, QFrame#githubLabel, QLabel#facebookLabel, QLabel#websiteLabel  {
+	font: 57 14pt &quot;Lato Medium&quot;;
+}
+/* author */
+QLabel#authorLabel {	
+	font: 57 8pt &quot;Lato Medium&quot;;
+}
+
+/* ICONS */
 QPushButton#close {
 	image: url(:/rsc/close.png);
 }
@@ -58,10 +76,6 @@ QPushButton#textBackgroundColor {
 QPushButton#resetSettings {
 	image: url(:/rsc/resetSettings.png);
 }
-
-QFrame{
-	background-color: rgba(0,0,0,0);
-}
 QFrame#fontPickerIcon {
 	image: url(:/rsc/fontpicker.png);
 }
@@ -71,54 +85,81 @@ QFrame#myFontsIcon {
 QFrame#settingsIcon {
 	image: url(:/rsc/settings.png);
 }
-/*end - QPushButton Styling */
+QFrame#socialGithubIcon {
+	image: url(:/rsc/socialGITHUB.png);
+}
+QFrame#socialFacebookIcon {
+	image: url(:/rsc/socialFB.png);
+}
+QFrame#socialWebsiteIcon {
+	image: url(:/rsc/socialWWW.png);
+}
 
+/* BACKGROUND  COLOR */
 
-/* start - coloring*/
-
-/* LIGHTER */
+/* transparency */
+QFrame{
+	background-color: rgba(0,0,0,0);
+}
+/* main color: darker */
+QFrame#actionButtonsArea {
+	background-color: rgb(38, 50, 56);
+}
+/* main color: lighter */
 QFrame#authorArea, QFrame#toolsArea {
 	background-color: rgb(55, 71, 79);
 }
-
-/* DARKER */
+/* white */
+QTextEdit, QLineEdit, QScrollArea#textScroll, QWidget#scrollAreaWidgetContents {
+	background-color: rgb(255,255,255);
+}
+/* white but darkerr */
 QFrame#leftPanelArea {
 	background-color: rgb(245, 245, 245);
 }
-/* WHITE */
-QTextEdit, QLineEdit { 
-	background-color: #fff;
-}
-/* ORANGE ACCENT ELEMENTS */
+/* accent elements */
 QFrame#searchIconBackground, QFrame#appNameBackground{
 	background-color: #e74c3c;
 }
-/* end - coloring */
 
-/*start - Rounded*/
+/* TEXT COLOR */
 
-/*double side*/
+/* white */
+QLabel#fontlyLabel , QLabel#authorLabel {
+  color:  #fff;
+}
+/* black 50% opacity */
+QLabel#menuLabel , QLabel#socialLabel {
+  color: rgba(0,0,0,.5);
+}
+/* black 35% opacity */
+QLabel#fontPickerLabel, QLabel#myFontsLabel, QLabel#settingsLabel, QFrame#githubLabel, QLabel#facebookLabel, QLabel#websiteLabel  {
+  color: rgba(0,0,0,.35);
+}
+/* BORDER COLOR */
+
+/* transparent */
+QFrame#appNameBackground, QFrame#searchIconBackground, QScrollArea#textScroll, QWidget#scrollAreaWidgetContents {
+	border: 1px solid rgba(0,0,0,0);
+}
+/* BORDER RADIUS */
+
+/* both sides */
 QLineEdit#fontApply {
-	border-color: rgba(0,0,0,0);
     border-radius: 20%;
 }
-
-/*right side*/
+/* right side */
 QFrame#appNameBackground, QFrame#searchIconBackground {
-	border-color:rgba(0,0,0,0);
 	border-top-right-radius: 20%;
 	border-bottom-right-radius: 20%;
 }
-
-/*left side*/
+/* left side */
 QLineEdit#search{
 	border-color:rgba(0,0,0,0);
 	border-top-left-radius: 20%;
 	border-bottom-left-radius: 20%;
 }
-
-
-/*end Rounded*/</string>
+</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QFrame" name="actionButtonsArea">
@@ -137,7 +178,7 @@ QLineEdit#search{
      </sizepolicy>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(38, 50, 56);</string>
+     <string notr="true"/>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -304,8 +345,7 @@ QLineEdit#search{
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 25 20pt &quot;Lato Light&quot;;
-color: rgb(255, 255, 255);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Fontly&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -360,6 +400,22 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QLabel" name="authorLabel">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>261</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;2017 © Bruno Kawka&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="leftPanelArea">
     <property name="geometry">
@@ -381,13 +437,12 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
       <rect>
        <x>35</x>
        <y>50</y>
-       <width>61</width>
+       <width>221</width>
        <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 57 16pt &quot;Lato Medium&quot;;
-color: rgba(0, 0, 0, .5);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Menu</string>
@@ -397,7 +452,7 @@ color: rgba(0, 0, 0, .5);</string>
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>110</y>
+       <y>105</y>
        <width>25</width>
        <height>25</height>
       </rect>
@@ -413,31 +468,29 @@ color: rgba(0, 0, 0, .5);</string>
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>112</y>
+       <y>105</y>
        <width>121</width>
        <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 16pt &quot;Lato&quot;;
-color: rgba(0, 0, 0, .3);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Font Picker</string>
      </property>
     </widget>
-    <widget class="QLabel" name="fontPickerLabel_2">
+    <widget class="QLabel" name="myFontsLabel">
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>152</y>
+       <y>155</y>
        <width>121</width>
        <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 16pt &quot;Lato&quot;;
-color: rgba(0, 0, 0, .3);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>My Fonts</string>
@@ -447,7 +500,7 @@ color: rgba(0, 0, 0, .3);</string>
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>150</y>
+       <y>155</y>
        <width>25</width>
        <height>25</height>
       </rect>
@@ -459,18 +512,17 @@ color: rgba(0, 0, 0, .3);</string>
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="fontPickerLabel_3">
+    <widget class="QLabel" name="settingsLabel">
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>180</y>
+       <y>205</y>
        <width>121</width>
-       <height>41</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 16pt &quot;Lato&quot;;
-color: rgba(0, 0, 0, .3);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Settings</string>
@@ -480,7 +532,173 @@ color: rgba(0, 0, 0, .3);</string>
      <property name="geometry">
       <rect>
        <x>50</x>
+       <y>205</y>
+       <width>25</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="socialLabel">
+     <property name="geometry">
+      <rect>
+       <x>35</x>
+       <y>285</y>
+       <width>221</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Check this project on</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="fontPickerIsActive">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>90</y>
+       <width>10</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(231, 76, 60);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QFrame" name="myFontsIsActive">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>140</y>
+       <width>10</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QFrame" name="myFontsIsActive_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
        <y>190</y>
+       <width>10</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="githubLabel">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>340</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>GitHub</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="facebookLabel">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>390</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Facebook</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="socialWebsiteIcon">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>440</y>
+       <width>25</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QFrame" name="socialGithubIcon">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>340</y>
+       <width>25</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="websiteLabel">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>440</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Website</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="socialFacebookIcon">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>390</y>
        <width>25</width>
        <height>25</height>
       </rect>
@@ -495,17 +713,80 @@ color: rgba(0, 0, 0, .3);</string>
     <zorder>menuLabel</zorder>
     <zorder>fontPickerIcon</zorder>
     <zorder>fontPickerLabel</zorder>
-    <zorder>fontPickerLabel_2</zorder>
+    <zorder>myFontsLabel</zorder>
     <zorder>myFontsIcon</zorder>
-    <zorder>fontPickerIcon_3</zorder>
-    <zorder>fontPickerLabel_3</zorder>
+    <zorder>settingsLabel</zorder>
     <zorder>settingsIcon</zorder>
+    <zorder>socialLabel</zorder>
+    <zorder>fontPickerIsActive</zorder>
+    <zorder>fontPickerIsActive_2</zorder>
+    <zorder>myFontsIsActive</zorder>
+    <zorder>myFontsIsActive_2</zorder>
+    <zorder>githubLabel</zorder>
+    <zorder>facebookLabel</zorder>
+    <zorder>socialWebsiteIcon</zorder>
+    <zorder>socialGithubIcon</zorder>
+    <zorder>websiteLabel</zorder>
+    <zorder>socialFacebookIcon</zorder>
    </widget>
-   <zorder>actionButtonsArea</zorder>
-   <zorder>toolsArea</zorder>
-   <zorder>authorArea</zorder>
-   <zorder>leftPanelArea</zorder>
-   <zorder>fontApply</zorder>
+   <widget class="QScrollArea" name="textScroll">
+    <property name="geometry">
+     <rect>
+      <x>259</x>
+      <y>140</y>
+      <width>1021</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1019</width>
+       <height>529</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="bottomBorder">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>670</y>
+      <width>1020</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(55, 71, 79);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="Line" name="line">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>3</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
