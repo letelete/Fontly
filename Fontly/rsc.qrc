@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>rsc/maximize.png</file>
+        <file>rsc/minimize.png</file>
+        <file>rsc/close.png</file>
+        <file>rsc/resetSettings.png</file>
+        <file>rsc/textBackgroundColor.png</file>
+        <file>rsc/textColor.png</file>
+        <file>rsc/search.png</file>
+        <file>rsc/fontpicker.png</file>
+        <file>rsc/myfonts.png</file>
+        <file>rsc/settings.png</file>
+        <file>rsc/socialFB.png</file>
+        <file>rsc/socialGITHUB.png</file>
+        <file>rsc/socialwww.png</file>
+    </qresource>
+</RCC>
