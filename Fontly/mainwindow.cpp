@@ -31,16 +31,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->search->setPlaceholderText("Search..");
     ui->textScroll->setStyleSheet("padding-left: 20px");
 
-    textLabel_FONT.setPointSize(50);
+    textLabel_FONT.setPixelSize(50);
 
     for(int i=0; i<fontsList.length(); i++)
     {
 
-        QListWidgetItem *fontInfoLabel = new QListWidgetItem(QString(fontsList[i]));
+        QListWidgetItem *fontInfoLabel = new QListWidgetItem(QString(fontsList[i]) + "   |   50px   |   ");
         QListWidgetItem *textLabel = new QListWidgetItem("Have a great day!");
 
-        textLabel->setSizeHint(QSize(0,100));
-        textLabel->setForeground(QColor(0,0,0,175));
+        textLabel->setSizeHint(QSize(0,90));
+        textLabel->setForeground(QColor(0,0,0,200));
 
         fontInfoLabel->setSizeHint(QSize(1000,40));
         fontInfoLabel->setBackgroundColor(QColor(245,245,245));
@@ -97,15 +97,21 @@ void MainWindow::on_fontApply_textChanged()
 
 void MainWindow::on_textSizeChanger_valueChanged(int value)
 {
-    QFont textFont;
-    if(value>=10)
-        textFont.setPointSize(value);
-
-    for(int i=1; i<ui->textScroll->count(); i += 2)
+    if(value >= 10)
     {
-        textFont.setFamily(ui->textScroll->item(i)->font().family());
-        ui->textScroll->item(i)->setSizeHint(QSize(0,textFont.pointSize()+50));
-        ui->textScroll->item(i)->setFont(textFont);
+        QFont textFont;
+        textFont.setPixelSize(value);
+
+        int k = 0;
+        for(int i=1; i<ui->textScroll->count(); i += 2)
+        {
+            textFont.setFamily(ui->textScroll->item(i)->font().family());
+            ui->textScroll->item(i)->setSizeHint(QSize(0,textFont.pixelSize()+50));
+            ui->textScroll->item(i)->setFont(textFont);
+
+            ui->textScroll->item(k)->setText(ui->textScroll->item(i)->font().family() + "  |  " + QString::number(textFont.pixelSize()) + " px");
+            k += 2;
+        }
     }
 }
 
@@ -136,10 +142,11 @@ void MainWindow::on_textBackgroundColor_clicked()
 
 void MainWindow::on_resetSettings_clicked()
 {
+    ui->textSizeChanger->setValue(50); //reset slider value
     ui->textSizeChanger->setSliderPosition(50); //reset slider position
     ui->textScroll->setStyleSheet("background-color: rgb(255, 255, 255);"); //reset background color
 
-    QFont textFont; //reset font size
+    QFont textFont;
     textFont.setPointSize(ui->textSizeChanger->sliderPosition()); //reset font size
 
     for(int i=1; i<ui->textScroll->count(); i += 2)
@@ -147,11 +154,8 @@ void MainWindow::on_resetSettings_clicked()
         textFont.setFamily(ui->textScroll->item(i)->font().family()); //reset font size
         ui->textScroll->item(i)->setFont(textFont); //reset font size
 
-        ui->textScroll->item(i)->setTextColor(QColor(33, 33 ,33)); //reset text color
+        ui->textScroll->item(i)->setTextColor(QColor(0,0,0,200)); //reset text color
         ui->textScroll->item(i)->setSizeHint(QSize(0, 100)); //reset QListWidgetItem size policy
     }
-    ui->textSizeChanger->setValue(50);
-    ui->fontApply->setPlaceholderText("Type something here..");
-    ui->search->setPlaceholderText("Search..");
-    ui->textScroll->setStyleSheet("padding-left: 20px");
+    ui->textScroll->setStyleSheet("padding-left: 20px"); //need to be declared here
 }

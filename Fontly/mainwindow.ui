@@ -50,7 +50,7 @@ QLabel#menuLabel , QLabel#socialLabel {
 }
 /* subsections */
 QLabel#fontPickerLabel, QLabel#myFontsLabel, QLabel#settingsLabel, QFrame#githubLabel, QLabel#facebookLabel, QLabel#websiteLabel  {
-	font: 57 14pt &quot;Lato Medium&quot;;
+	font: 63 14pt &quot;Lato Semibold&quot;;
 }
 /* author */
 QLabel#authorLabel {	
@@ -139,7 +139,7 @@ QLabel#fontPickerLabel, QLabel#myFontsLabel, QLabel#settingsLabel, QFrame#github
 /* BORDER COLOR */
 
 /* transparent */
-* {
+QListView {
 	border: 1px solid rgba(0,0,0,0);
 }
 /* BORDER RADIUS */
@@ -149,9 +149,13 @@ QLineEdit#fontApply {
     border-radius: 20%;
 }
 /* right side */
-QFrame#appNameBackground, QFrame#searchIconBackground {
+QFrame#searchIconBackground {
 	border-top-right-radius: 20%;
 	border-bottom-right-radius: 20%;
+}
+QFrame#appNameBackground {
+	border-top-right-radius: 25%;
+	border-bottom-right-radius: 25%;
 }
 /* left side */
 QLineEdit#search{
@@ -478,7 +482,7 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>105</y>
+       <y>107</y>
        <width>121</width>
        <height>21</height>
       </rect>
@@ -494,7 +498,7 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>155</y>
+       <y>157</y>
        <width>121</width>
        <height>21</height>
       </rect>
@@ -526,7 +530,7 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>195</y>
+       <y>197</y>
        <width>121</width>
        <height>41</height>
       </rect>
@@ -644,7 +648,7 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>390</y>
+       <y>392</y>
        <width>121</width>
        <height>21</height>
       </rect>
@@ -675,10 +679,10 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
     <widget class="QFrame" name="socialGithubIcon">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>340</y>
-       <width>25</width>
-       <height>25</height>
+       <x>45</x>
+       <y>334</y>
+       <width>41</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -692,7 +696,7 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>440</y>
+       <y>442</y>
        <width>121</width>
        <height>21</height>
       </rect>
@@ -760,10 +764,16 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>139</y>
+      <y>140</y>
       <width>1020</width>
-      <height>531</height>
+      <height>530</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
    </widget>
    <zorder>bottomBorder</zorder>
