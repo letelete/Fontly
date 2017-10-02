@@ -42,19 +42,23 @@
 
 /* app name */
 QLabel#fontlyLabel{
-	font: 57 18pt &quot;Lato Medium&quot;;
+	font: 75 18pt &quot;Roboto&quot;;
+}
+/* text inputs */
+QLineEdit#fontApply, QLineEdit#search {
+	font: 57 14pt &quot;Roboto&quot;;
 }
 /* sections */
 QLabel#menuLabel , QLabel#socialLabel {
-	font: 63 14pt &quot;Lato Semibold&quot;;
+	font: 57 14pt &quot;Roboto Medium&quot;;
 }
 /* subsections */
 QLabel#fontPickerLabel, QLabel#myFontsLabel, QLabel#settingsLabel, QFrame#githubLabel, QLabel#facebookLabel, QLabel#websiteLabel  {
-	font: 63 14pt &quot;Lato Semibold&quot;;
+	font: 75 13pt &quot;Roboto Medium&quot;;
 }
 /* author */
 QLabel#authorLabel {	
-	font: 57 8pt &quot;Lato Medium&quot;;
+	font: 57 8pt &quot;Roboto&quot;;
 }
 
 /* ICONS */
@@ -77,7 +81,7 @@ QPushButton#resetSettings {
 	image: url(:/rsc/resetSettings.png);
 }
 QFrame#fontPickerIcon {
-	image: url(:/rsc/fontpicker.png);
+	image: url(:/rsc/fontpickerACTIVE.png);
 }
 QFrame#myFontsIcon {
 	image: url(:/rsc/myfonts.png);
@@ -128,12 +132,16 @@ QFrame#searchIconBackground, QFrame#appNameBackground{
 QLabel#fontlyLabel , QLabel#authorLabel {
   color:  #fff;
 }
+/* white but darker */
+QLabel#fontPickerLabel {
+	color: rgb(245,245,245);
+}
 /* black 50% opacity */
 QLabel#menuLabel , QLabel#socialLabel {
   color: rgba(0,0,0,.5);
 }
 /* black 35% opacity */
-QLabel#fontPickerLabel, QLabel#myFontsLabel, QLabel#settingsLabel, QFrame#githubLabel, QLabel#facebookLabel, QLabel#websiteLabel  {
+QLabel#myFontsLabel, QLabel#settingsLabel, QFrame#githubLabel, QLabel#facebookLabel, QLabel#websiteLabel  {
   color: rgba(0,0,0,.35);
 }
 /* BORDER COLOR */
@@ -389,9 +397,9 @@ QSlider::handle:horizontal {
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgba(0, 0, 0, .6);
-padding-left: 10px;
-padding-right: 10px;
-font: 25 14pt &quot;Lato Light&quot;;
+padding-left: 12px;
+padding-right: 12px;
+
 </string>
      </property>
     </widget>
@@ -412,9 +420,9 @@ font: 25 14pt &quot;Lato Light&quot;;
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgba(0, 0, 0, .6);
-padding-left: 10px;
-padding-right: 10px;
-font: 25 14pt &quot;Lato Light&quot;;</string>
+padding-left: 12px;
+padding-right: 12px;
+</string>
      </property>
     </widget>
     <widget class="QSlider" name="textSizeChanger">
@@ -579,12 +587,12 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
       <rect>
        <x>0</x>
        <y>90</y>
-       <width>10</width>
+       <width>261</width>
        <height>50</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(231, 76, 60);</string>
+      <string notr="true">background-color: #263238;</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -598,7 +606,7 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
       <rect>
        <x>0</x>
        <y>140</y>
-       <width>10</width>
+       <width>261</width>
        <height>50</height>
       </rect>
      </property>
@@ -614,7 +622,7 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
       <rect>
        <x>0</x>
        <y>190</y>
-       <width>10</width>
+       <width>261</width>
        <height>50</height>
       </rect>
      </property>
@@ -724,6 +732,23 @@ font: 25 14pt &quot;Lato Light&quot;;</string>
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
+    <zorder>settingsIsActive</zorder>
+    <zorder>myFontsIsActive</zorder>
+    <zorder>fontPickerIsActive</zorder>
+    <zorder>menuLabel</zorder>
+    <zorder>fontPickerIcon</zorder>
+    <zorder>fontPickerLabel</zorder>
+    <zorder>myFontsLabel</zorder>
+    <zorder>myFontsIcon</zorder>
+    <zorder>settingsLabel</zorder>
+    <zorder>settingsIcon</zorder>
+    <zorder>socialLabel</zorder>
+    <zorder>githubLabel</zorder>
+    <zorder>facebookLabel</zorder>
+    <zorder>socialWebsiteIcon</zorder>
+    <zorder>socialGithubIcon</zorder>
+    <zorder>websiteLabel</zorder>
+    <zorder>socialFacebookIcon</zorder>
    </widget>
    <widget class="QFrame" name="bottomBorder">
     <property name="geometry">

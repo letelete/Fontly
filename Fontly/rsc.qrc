@@ -17,5 +17,8 @@
         <file>rsc/addtofolder.png</file>
         <file>rsc/maximize.png</file>
         <file>rsc/socialWWW.png</file>
+        <file>rsc/fontpickerACTIVE.png</file>
+        <file>rsc/myfontsACTIVE.png</file>
+        <file>rsc/settingsACTIVE.png</file>
     </qresource>
 </RCC>
