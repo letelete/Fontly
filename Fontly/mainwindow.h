@@ -33,6 +33,8 @@ private slots:
 
     void on_resetSettings_clicked();
 
+    void on_myFontsButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QPoint dragPosition;

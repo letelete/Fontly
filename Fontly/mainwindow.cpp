@@ -41,15 +41,13 @@ MainWindow::MainWindow(QWidget *parent)
 
         textLabel->setSizeHint(QSize(0,90));
         textLabel->setForeground(QColor(0,0,0,200));
+        textLabel_FONT.setFamily(fontsList[i]);
+        textLabel->setFont(textLabel_FONT);
 
         fontInfoLabel->setSizeHint(QSize(1000,40));
         fontInfoLabel->setBackgroundColor(QColor(245,245,245));
         fontInfoLabel->setForeground(QColor(0,0,0,100));
         fontInfoLabel->setFont(QFont("Roboto", 10));
-
-
-        textLabel_FONT.setFamily(fontsList[i]);
-        textLabel->setFont(textLabel_FONT);
 
         ui->textScroll->addItem(fontInfoLabel);
         ui->textScroll->addItem(textLabel);
@@ -106,7 +104,6 @@ void MainWindow::on_textSizeChanger_valueChanged(int value)
             textFont.setFamily(ui->textScroll->item(i)->font().family());
             ui->textScroll->item(i)->setSizeHint(QSize(0,textFont.pixelSize()+40));
             ui->textScroll->item(i)->setFont(textFont);
-
             ui->textScroll->item(k)->setText(ui->textScroll->item(i)->font().family() + "  |  " + QString::number(textFont.pixelSize()) + " px");
             k += 2;
         }
@@ -129,41 +126,52 @@ void MainWindow::on_textColor_clicked()
 void MainWindow::on_textBackgroundColor_clicked()
 {
     QColor color = QColorDialog::getColor(Qt::white, this, "Choose background color").toHsv();
+    QColor contrastBackgroundColor = color.value() < 60 ? color.darker(60) : color.darker(110);
+    QColor contrastTextColor = QColor(0,0,0);
 
     if(color.isValid())
     {
-        QString sheet = QString::fromLatin1("background-color: %1 }").arg(color.name());
+        QString sheet = QString::fromLatin1("padding-left: 20px; background-color: %1 }").arg(color.name());
         ui->textScroll->setStyleSheet(sheet);
+
+        if(    ((((contrastBackgroundColor.hue() >= 185) && (contrastBackgroundColor.hue() <= 359)) || ((contrastBackgroundColor.hue() >= 0) && (contrastBackgroundColor.hue() <= 50)))
+            && ((contrastBackgroundColor.saturation() <= 255) && (contrastBackgroundColor.saturation() >= 150)))
+            || ((contrastBackgroundColor.value() >= 60) && (contrastBackgroundColor.value() <= 180)) )
+        {
+            contrastTextColor = QColor(245,245,245);
+        }
+        else if(contrastBackgroundColor.value() < 60)
+        {
+            contrastTextColor = QColor(150,150,150);
+        }
 
         for(int i=0; i<ui->textScroll->count(); i += 2)
         {
-            ui->textScroll->item(i)->setBackgroundColor(color.darker(120));
-            ui->textScroll->item(i)->setTextColor(ui->textScroll->item(i)->backgroundColor().lighter(150));
+            ui->textScroll->item(i)->setTextColor(contrastTextColor);
+            ui->textScroll->item(i)->setBackgroundColor(contrastBackgroundColor);
         }
     }
 }
 
 void MainWindow::on_resetSettings_clicked()
 {
-    ui->textSizeChanger->setValue(50); //reset slider value
-    ui->textSizeChanger->setSliderPosition(50); //reset slider position
-    ui->textScroll->setStyleSheet("background-color: rgb(255, 255, 255);"); //reset background color
-
     QFont textFont;
-    textFont.setPixelSize(ui->textSizeChanger->value()+10); //reset font size
+    textFont.setPixelSize(ui->textSizeChanger->value()+10);                                     //reset font size
 
     int k = 0;
     for(int i=1; i<ui->textScroll->count(); i += 2)
     {
-        textFont.setFamily(ui->textScroll->item(i)->font().family()); //reset font size
-        ui->textScroll->item(i)->setFont(textFont); //reset font size
+        textFont.setFamily(ui->textScroll->item(i)->font().family());                           //reset font size
+        ui->textScroll->item(i)->setFont(textFont);                                             //reset font size
 
-        ui->textScroll->item(i)->setTextColor(QColor(0,0,0,200)); //reset text color
-        ui->textScroll->item(i)->setSizeHint(QSize(0, 90)); //reset QListWidgetItem size policy
-        ui->textScroll->item(k)->setBackgroundColor(QColor(245, 245, 245)); //reset font info panel background
-        ui->textScroll->item(k)->setTextColor(QColor(0,0,0,100));
+        ui->textScroll->item(i)->setTextColor(QColor(0,0,0,200));                               //reset text color
+        ui->textScroll->item(i)->setSizeHint(QSize(0, 90));                                     //reset QListWidgetItem size policy
+        ui->textScroll->item(k)->setBackgroundColor(QColor(245, 245, 245));                     //reset font info panel background
+        ui->textScroll->item(k)->setTextColor(QColor(0,0,0,100));                               //reset font info panel text color
 
         k += 2;
     }
-    ui->textScroll->setStyleSheet("padding-left: 20px"); //need to be declared here
+    ui->textSizeChanger->setValue(50);                                                          //reset slider value
+    ui->textSizeChanger->setSliderPosition(50);                                                 //reset slider position
+    ui->textScroll->setStyleSheet("padding-left: 20px; background-color: rgb(255, 255, 255);"); //reset background color
 }

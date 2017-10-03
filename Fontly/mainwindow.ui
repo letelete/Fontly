@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -186,7 +186,6 @@ QSlider::handle:horizontal {
 	margin: -4px 0;
     border-radius: 4px;
 }
-
 </string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -474,7 +473,7 @@ padding-right: 12px;
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>105</y>
+       <y>103</y>
        <width>25</width>
        <height>25</height>
       </rect>
@@ -490,7 +489,7 @@ padding-right: 12px;
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>107</y>
+       <y>105</y>
        <width>121</width>
        <height>21</height>
       </rect>
@@ -506,7 +505,7 @@ padding-right: 12px;
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>157</y>
+       <y>155</y>
        <width>121</width>
        <height>21</height>
       </rect>
@@ -522,7 +521,7 @@ padding-right: 12px;
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>155</y>
+       <y>153</y>
        <width>25</width>
        <height>25</height>
       </rect>
@@ -538,7 +537,7 @@ padding-right: 12px;
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>197</y>
+       <y>194</y>
        <width>121</width>
        <height>41</height>
       </rect>
@@ -554,7 +553,7 @@ padding-right: 12px;
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>205</y>
+       <y>203</y>
        <width>25</width>
        <height>25</height>
       </rect>
@@ -616,6 +615,8 @@ padding-right: 12px;
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
+     <zorder>textScroll</zorder>
+     <zorder>myFontsButton</zorder>
     </widget>
     <widget class="QFrame" name="settingsIsActive">
      <property name="geometry">
@@ -749,6 +750,7 @@ padding-right: 12px;
     <zorder>socialGithubIcon</zorder>
     <zorder>websiteLabel</zorder>
     <zorder>socialFacebookIcon</zorder>
+    <zorder>myFontsButton</zorder>
    </widget>
    <widget class="QFrame" name="bottomBorder">
     <property name="geometry">
@@ -806,6 +808,7 @@ padding-right: 12px;
    <zorder>toolsArea</zorder>
    <zorder>leftPanelArea</zorder>
    <zorder>textScroll</zorder>
+   <zorder>myFontsLabel</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
