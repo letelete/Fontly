@@ -166,7 +166,7 @@ QFrame#appNameBackground {
 	border-bottom-right-radius: 25%;
 }
 /* left side */
-QLineEdit#search{
+QLineEdit#search {
 	border-color:rgba(0,0,0,0);
 	border-top-left-radius: 20%;
 	border-bottom-left-radius: 20%;
@@ -186,6 +186,8 @@ QSlider::handle:horizontal {
 	margin: -4px 0;
     border-radius: 4px;
 }
+
+
 </string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -615,8 +617,6 @@ padding-right: 12px;
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <zorder>textScroll</zorder>
-     <zorder>myFontsButton</zorder>
     </widget>
     <widget class="QFrame" name="settingsIsActive">
      <property name="geometry">
@@ -750,7 +750,6 @@ padding-right: 12px;
     <zorder>socialGithubIcon</zorder>
     <zorder>websiteLabel</zorder>
     <zorder>socialFacebookIcon</zorder>
-    <zorder>myFontsButton</zorder>
    </widget>
    <widget class="QFrame" name="bottomBorder">
     <property name="geometry">
@@ -792,7 +791,7 @@ padding-right: 12px;
      <rect>
       <x>260</x>
       <y>140</y>
-      <width>1020</width>
+      <width>1021</width>
       <height>530</height>
      </rect>
     </property>
@@ -808,7 +807,6 @@ padding-right: 12px;
    <zorder>toolsArea</zorder>
    <zorder>leftPanelArea</zorder>
    <zorder>textScroll</zorder>
-   <zorder>myFontsLabel</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

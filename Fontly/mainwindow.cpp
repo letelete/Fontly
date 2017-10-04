@@ -10,10 +10,10 @@
 #include <QSize>
 #include <QLine>
 #include <QColorDialog>
-
 #include <QDesktopServices>
 #include <QUrl>
 #include <QMouseEvent>
+#include <QPalette>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent, Qt::FramelessWindowHint),
@@ -29,17 +29,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->textSizeChanger->setValue(50);
     ui->fontApply->setPlaceholderText("Type something here..");
     ui->search->setPlaceholderText("Search..");
-    ui->textScroll->setStyleSheet("padding-left: 20px");
+    ui->textScroll->setStyleSheet("left: 20px; padding-left: 20px");
 
     textLabel_FONT.setPixelSize(60);
 
     for(int i=0; i<fontsList.length(); i++)
     {
-
-        QListWidgetItem *fontInfoLabel = new QListWidgetItem(QString(fontsList[i]) + "   |   50px");
+        QListWidgetItem *fontInfoLabel = new QListWidgetItem(QString(fontsList[i]) + "   |   60px");
         QListWidgetItem *textLabel = new QListWidgetItem("Have a great day!");
 
-        textLabel->setSizeHint(QSize(0,90));
+        textLabel->setSizeHint(QSize(0,textLabel_FONT.pixelSize()+50));
         textLabel->setForeground(QColor(0,0,0,200));
         textLabel_FONT.setFamily(fontsList[i]);
         textLabel->setFont(textLabel_FONT);
@@ -58,6 +57,8 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+// Window action buttons + drag & move
 
 void MainWindow::on_maximize_clicked()
 {
@@ -84,6 +85,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
     }
 }
 
+// Font picker buttons
 
 void MainWindow::on_fontApply_textChanged()
 {
@@ -102,7 +104,7 @@ void MainWindow::on_textSizeChanger_valueChanged(int value)
         for(int i=1; i<ui->textScroll->count(); i += 2)
         {
             textFont.setFamily(ui->textScroll->item(i)->font().family());
-            ui->textScroll->item(i)->setSizeHint(QSize(0,textFont.pixelSize()+40));
+            ui->textScroll->item(i)->setSizeHint(QSize(0,textFont.pixelSize()+50));
             ui->textScroll->item(i)->setFont(textFont);
             ui->textScroll->item(k)->setText(ui->textScroll->item(i)->font().family() + "  |  " + QString::number(textFont.pixelSize()) + " px");
             k += 2;
@@ -125,24 +127,29 @@ void MainWindow::on_textColor_clicked()
 
 void MainWindow::on_textBackgroundColor_clicked()
 {
-    QColor color = QColorDialog::getColor(Qt::white, this, "Choose background color").toHsv();
+    QColor color = QColorDialog::getColor(QColor(ui->textScroll->palette().color(ui->textScroll->backgroundRole())), this, "Choose background color").toHsv();
     QColor contrastBackgroundColor = color.value() < 60 ? color.darker(60) : color.darker(110);
-    QColor contrastTextColor = QColor(0,0,0);
+    QColor contrastTextColor = QColor(33,33,33);
 
     if(color.isValid())
     {
         QString sheet = QString::fromLatin1("padding-left: 20px; background-color: %1 }").arg(color.name());
         ui->textScroll->setStyleSheet(sheet);
 
-        if(    ((((contrastBackgroundColor.hue() >= 185) && (contrastBackgroundColor.hue() <= 359)) || ((contrastBackgroundColor.hue() >= 0) && (contrastBackgroundColor.hue() <= 50)))
-            && ((contrastBackgroundColor.saturation() <= 255) && (contrastBackgroundColor.saturation() >= 150)))
+        if( (( ((contrastBackgroundColor.hue() >= 190) && (contrastBackgroundColor.hue() <= 359))
+            || ((contrastBackgroundColor.hue() >= 0) && (contrastBackgroundColor.hue() <= 45)))
+            && ((contrastBackgroundColor.saturation() <= 255) && (contrastBackgroundColor.saturation() >= 100)))
             || ((contrastBackgroundColor.value() >= 60) && (contrastBackgroundColor.value() <= 180)) )
         {
-            contrastTextColor = QColor(245,245,245);
+            contrastTextColor = QColor(220,220,220);
         }
         else if(contrastBackgroundColor.value() < 60)
         {
             contrastTextColor = QColor(150,150,150);
+        }
+        else if(contrastBackgroundColor.value() > 220)
+        {
+            contrastTextColor = QColor(85,85,85);
         }
 
         for(int i=0; i<ui->textScroll->count(); i += 2)
