@@ -113,8 +113,7 @@ void MainWindow::on_textSizeChanger_valueChanged(int value)
 
 void MainWindow::on_textColor_clicked()
 {
-    QColor color;
-    color = QColorDialog::getColor(Qt::white, this, "Choose text color");
+    QColor color = QColorDialog::getColor(QColor(ui->textScroll->item(1)->textColor()), this, "Choose text color");
 
     if(color.isValid())
     {
@@ -151,7 +150,6 @@ void MainWindow::on_textBackgroundColor_clicked()
         {
             contrastTextColor = QColor(85,85,85);
         }
-
         for(int i=0; i<ui->textScroll->count(); i += 2)
         {
             ui->textScroll->item(i)->setTextColor(contrastTextColor);
