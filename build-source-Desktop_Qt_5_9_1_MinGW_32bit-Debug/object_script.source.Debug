@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\fontly.o
+./debug\fontpicker.o
+./debug\myfonts.o
+./debug\settings.o
+./debug\qrc_icons.o
+./debug\moc_fontly.o
+./debug\moc_fontpicker.o
+./debug\moc_myfonts.o
+./debug\moc_settings.o
+);
