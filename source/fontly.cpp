@@ -11,10 +11,7 @@ fontly::fontly(QWidget *parent) :
     ui->currentWindow->insertWidget(2, &myfontsTab);
     ui->currentWindow->insertWidget(3, &settingsTab);
 
-    ui->currentWindow->setCurrentIndex(1);
-    ui->fontPickerLabel->setStyleSheet(QString("color: #fff"));
-    ui->fontPickerIcon->setStyleSheet(QString("image: url(:/assets/icons/fontpickerACTIVE.png)"));
-    ui->fontPickerIsActive->setStyleSheet(QString("background-color: rgb(38, 50, 56)"));
+    on_fontPickerButton_clicked();
 }
 
 fontly::~fontly()
@@ -22,7 +19,7 @@ fontly::~fontly()
     delete ui;
 }
 
-// ------------------------------------- BASIC FUNCTIONS (drag window, action buttons) -------------------------------------
+// ------------- BASIC FUNCTIONS (drag window, action buttons) -------------------
 
 void fontly::mousePressEvent(QMouseEvent *event)
 {
@@ -68,6 +65,8 @@ void fontly::on_minimize_clicked()
 
 void fontly::on_fontPickerButton_clicked()
 {
+    ui->currentWindow->setCurrentIndex(1);
+
     ui->fontPickerLabel->setStyleSheet(QString("color: #fff"));
     ui->fontPickerIcon->setStyleSheet(QString("image: url(:/assets/icons/fontpickerACTIVE.png)"));
     ui->fontPickerIsActive->setStyleSheet(QString("background-color: rgb(38, 50, 56)"));
@@ -80,11 +79,13 @@ void fontly::on_fontPickerButton_clicked()
     ui->settingsIcon->setStyleSheet(QString("image: url(:/assets/icons/settings.png);"));
     ui->settingsIsActive->setStyleSheet(QString("background-color: rgb(245,245,245)"));
 
-    ui->currentWindow->setCurrentIndex(1);
 }
 
 void fontly::on_myFontsButton_clicked()
 {
+
+    ui->currentWindow->setCurrentIndex(2);
+
     ui->myFontsLabel->setStyleSheet(QString("color: #fff"));
     ui->myFontsIcon->setStyleSheet(QString("image: url(:/assets/icons/myfontsACTIVE.png)"));
     ui->myFontsIsActive->setStyleSheet(QString("background-color: rgb(38, 50, 56)"));
@@ -96,12 +97,13 @@ void fontly::on_myFontsButton_clicked()
     ui->settingsLabel->setStyleSheet(QString("color: rgba(0,0,0,.35)"));
     ui->settingsIcon->setStyleSheet(QString("image: url(:/assets/icons/settings.png);"));
     ui->settingsIsActive->setStyleSheet(QString("background-color: rgb(245,245,245)"));
-
-    ui->currentWindow->setCurrentIndex(2);
 }
 
 void fontly::on_settingsButton_clicked()
 {
+
+    ui->currentWindow->setCurrentIndex(3);
+
     ui->settingsLabel->setStyleSheet(QString("color: #fff"));
     ui->settingsIcon->setStyleSheet(QString("image: url(:/assets/icons/settingsACTIVE.png)"));
     ui->settingsIsActive->setStyleSheet(QString("background-color: rgb(38, 50, 56)"));
@@ -112,12 +114,10 @@ void fontly::on_settingsButton_clicked()
 
     ui->myFontsLabel->setStyleSheet(QString("color: rgba(0,0,0,.35)"));
     ui->myFontsIcon->setStyleSheet(QString("image: url(:/assets/icons/myfonts.png);"));
-    ui->myFontsIsActive->setStyleSheet(QString("background-color: rgb(245,245,245)"));
-
-    ui->currentWindow->setCurrentIndex(3);
+    ui->myFontsIsActive->setStyleSheet(QString("background-color: rgb(245,245,245)"));\
 }
 
-// ------------------------------------- SOCIAL URLS -------------------------------------
+// ------------------------------ SOCIAL URLS -------------------------------------
 
 void fontly::on_githubButton_clicked()
 {

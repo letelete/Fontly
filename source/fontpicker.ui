@@ -13,12 +13,43 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QListView {
+    alternate-background-color: yellow;
+}
+QListView {
+    show-decoration-selected: 1; /* make the selection span the entire width of the view */
+}
+QListView::item:alternate {
+    background: #EEEEEE;
+}
+
+QListView::item:selected {
+   	background-color: rgba(0,0,0,0);
+	color: rgb(0,0,0);
+}
+
+QListView::item:selected:!active {
+	background-color: rgba(0,0,0,0);
+	color: rgb(0,0,0);
+}
+QListView::item:selected:active {
+    background-color: rgba(0,0,0,0);
+	color: rgb(0,0,0);
+}
+
+QListView::item:hover {
+	background-color: rgba(0,0,0,0);
+	color: rgb(0,0,0);
+}
+</string>
+  </property>
   <widget class="QListWidget" name="textScroll">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>100</y>
-     <width>1080</width>
+     <width>1020</width>
      <height>530</height>
     </rect>
    </property>
@@ -27,6 +58,15 @@
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="autoScroll">
+    <bool>true</bool>
+   </property>
+   <property name="verticalScrollMode">
+    <enum>QAbstractItemView::ScrollPerItem</enum>
    </property>
   </widget>
   <widget class="QFrame" name="toolsArea">
@@ -177,6 +217,8 @@ padding-right: 12px;
    <zorder>textSizeChanger</zorder>
    <zorder>searchIconBackground</zorder>
   </widget>
+  <zorder>toolsArea</zorder>
+  <zorder>textScroll</zorder>
  </widget>
  <resources/>
  <connections/>

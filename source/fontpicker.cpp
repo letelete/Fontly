@@ -7,21 +7,28 @@ fontpicker::fontpicker(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    fontsList = QFontDatabase().families();
+    // ----------------------------------- CONFIG -------------------------------------
 
-    //configuration
-    ui->textSizeChanger->setValue(50);
+    textSizeChanger_DVALUE = 60;
+
+    ui->textSizeChanger->setValue(textSizeChanger_DVALUE);
+    ui->textSizeChanger->setSliderPosition(textSizeChanger_DVALUE);
+    ui->textSizeChanger->setRange(20,150);
+
+    fontsList = QFontDatabase().families();
+    textLabel_FONT.setPixelSize(textSizeChanger_DVALUE);
     ui->fontApply->setPlaceholderText("Type something here..");
     ui->search->setPlaceholderText("Search..");
     ui->textScroll->setStyleSheet("left: 20px; padding-left: 20px; padding-top: 20px");
 
-    textLabel_FONT.setPixelSize(60);
+    // ------------------------------ CREATING A LIST ---------------------------------
+
     for(int i=0; i<fontsList.length(); i++)
     {
-        QListWidgetItem *fontInfoLabel = new QListWidgetItem(QString(fontsList[i]) + "   |   60px");
+        QListWidgetItem *fontInfoLabel = new QListWidgetItem(QString(fontsList[i]) + "   |   80px");
         QListWidgetItem *textLabel = new QListWidgetItem("Have a great day!");
 
-        textLabel->setSizeHint(QSize(0,textLabel_FONT.pixelSize()+50));
+        textLabel->setSizeHint(QSize(0,textSizeChanger_DVALUE+50));
         textLabel->setForeground(QColor(0,0,0,200));
         textLabel_FONT.setFamily(fontsList[i]);
         textLabel->setFont(textLabel_FONT);
@@ -41,6 +48,8 @@ fontpicker::~fontpicker()
     delete ui;
 }
 
+// ------------------------------------- BUTTONS -------------------------------------
+
 void fontpicker::on_fontApply_textChanged()
 {
     for(int i=1; i<ui->textScroll->count(); i += 2)
@@ -52,16 +61,20 @@ void fontpicker::on_fontApply_textChanged()
 void fontpicker::on_textSizeChanger_valueChanged(int value)
 {
     QFont textFont;
-    textFont.setPixelSize(value+20);
+    textFont.setPixelSize(value);
 
-    int k = 0;
-    for(int i=1; i<ui->textScroll->count(); i += 2)
+    for(int i=0; i<ui->textScroll->count(); i ++)
     {
-        textFont.setFamily(ui->textScroll->item(i)->font().family());
-        ui->textScroll->item(i)->setSizeHint(QSize(0,textFont.pixelSize()+50));
-        ui->textScroll->item(i)->setFont(textFont);
-        ui->textScroll->item(k)->setText(ui->textScroll->item(i)->font().family() + "  |  " + QString::number(textFont.pixelSize()) + " px");
-        k += 2;
+        if(i == 0 || i % 2 == 0)
+        {
+            ui->textScroll->item(i)->setText(ui->textScroll->item(i+1)->font().family() + "  |  " + QString::number(textFont.pixelSize()) + " px");
+        }
+        else
+        {
+            textFont.setFamily(ui->textScroll->item(i)->font().family());
+            ui->textScroll->item(i)->setSizeHint(QSize(0,textFont.pixelSize()+50));
+            ui->textScroll->item(i)->setFont(textFont);
+        }
     }
 }
 
@@ -114,23 +127,26 @@ void fontpicker::on_textBackgroundColor_clicked()
 
 void fontpicker::on_resetSettings_clicked()
 {
-    QFont textFont;
-    textFont.setPixelSize(ui->textSizeChanger->value()+10);                                     //reset font size
+    QFont textFont;                                                                             //
+    ui->textSizeChanger->setValue(textSizeChanger_DVALUE);                                      //  reset slider value
+    ui->textSizeChanger->setSliderPosition(textSizeChanger_DVALUE);                             //  reset slider position
+    textFont.setPixelSize(ui->textSizeChanger->value());                                        //  reset font size
+                                                                                                //
+    for(int i=0; i<ui->textScroll->count(); i ++)                                               //
+    {                                                                                           //
+        if(i == 0 || i % 2 == 0)
+        {
+            ui->textScroll->item(i)->setBackgroundColor(QColor(245, 245, 245));                 //  reset font info panel background
+            ui->textScroll->item(i)->setTextColor(QColor(0,0,0,100));                           //  reset font info panel text color
+        }
+        else
+        {
+            textFont.setFamily(ui->textScroll->item(i)->font().family());                       //  reset font size
+            ui->textScroll->item(i)->setFont(textFont);                                         //  reset font size
+            ui->textScroll->item(i)->setTextColor(QColor(0,0,0,200));                           //  reset text color
+            ui->textScroll->item(i)->setSizeHint(QSize(0, textSizeChanger_DVALUE + 50));        //  reset QListWidgetItem size policy
+        }
+    }                                                                                           //
 
-    int k = 0;
-    for(int i=1; i<ui->textScroll->count(); i += 2)
-    {
-        textFont.setFamily(ui->textScroll->item(i)->font().family());                           //reset font size
-        ui->textScroll->item(i)->setFont(textFont);                                             //reset font size
-
-        ui->textScroll->item(i)->setTextColor(QColor(0,0,0,200));                               //reset text color
-        ui->textScroll->item(i)->setSizeHint(QSize(0, 90));                                     //reset QListWidgetItem size policy
-        ui->textScroll->item(k)->setBackgroundColor(QColor(245, 245, 245));                     //reset font info panel background
-        ui->textScroll->item(k)->setTextColor(QColor(0,0,0,100));                               //reset font info panel text color
-
-        k += 2;
-    }
-    ui->textSizeChanger->setValue(50);                                                          //reset slider value
-    ui->textSizeChanger->setSliderPosition(50);                                                 //reset slider position
-    ui->textScroll->setStyleSheet("padding-left: 20px; background-color: rgb(255, 255, 255);"); //reset background color
+    ui->textScroll->setStyleSheet("padding-left: 20px; background-color: rgb(255, 255, 255);"); //  reset background color
 }

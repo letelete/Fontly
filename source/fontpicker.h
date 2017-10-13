@@ -37,6 +37,7 @@ private:
     Ui::fontpicker *ui;
     QStringList fontsList;
     QFont textLabel_FONT;
+    int textSizeChanger_DVALUE; // default value of textsizechanger
 };
 
 #endif // FONTPICKER_H
