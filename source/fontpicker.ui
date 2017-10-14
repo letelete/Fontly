@@ -26,21 +26,21 @@ QListView::item:alternate {
 
 QListView::item:selected {
    	background-color: rgba(0,0,0,0);
-	color: rgb(0,0,0);
+	color: rgba(0,0,0,200);
 }
 
 QListView::item:selected:!active {
 	background-color: rgba(0,0,0,0);
-	color: rgb(0,0,0);
+	color: rgba(0,0,0,200);
 }
 QListView::item:selected:active {
     background-color: rgba(0,0,0,0);
-	color: rgb(0,0,0);
+	color: rgba(0,0,0,200);
 }
 
 QListView::item:hover {
 	background-color: rgba(0,0,0,0);
-	color: rgb(0,0,0);
+	color: rgba(0,0,0,200);
 }
 </string>
   </property>
@@ -63,7 +63,7 @@ QListView::item:hover {
     <enum>QFrame::NoFrame</enum>
    </property>
    <property name="autoScroll">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="verticalScrollMode">
     <enum>QAbstractItemView::ScrollPerItem</enum>

@@ -25,7 +25,7 @@ fontpicker::fontpicker(QWidget *parent) :
 
     for(int i=0; i<fontsList.length(); i++)
     {
-        QListWidgetItem *fontInfoLabel = new QListWidgetItem(QString(fontsList[i]) + "   |   80px");
+        QListWidgetItem *fontInfoLabel = new QListWidgetItem(QString(fontsList[i]) + "   |   " + QString::number(textSizeChanger_DVALUE));
         QListWidgetItem *textLabel = new QListWidgetItem("Have a great day!");
 
         textLabel->setSizeHint(QSize(0,textSizeChanger_DVALUE+50));
@@ -81,6 +81,13 @@ void fontpicker::on_textSizeChanger_valueChanged(int value)
 void fontpicker::on_textColor_clicked()
 {
     QColor color = QColorDialog::getColor(QColor(ui->textScroll->item(1)->textColor()), this, "Choose text color");
+
+    QString appSheet  = QString::fromLatin1("QListView::item:selected{color: %1 }").arg(color.name());
+            appSheet += QString::fromLatin1("QListView::item:selected:active{color: %1 }").arg(color.name());
+            appSheet += QString::fromLatin1("QListView::item:selected:!active{color: %1 }").arg(color.name());
+            appSheet += QString::fromLatin1("QListView::item:hover{color: %1 }").arg(color.name());
+
+    ui->textScroll->setStyleSheet(appSheet);
 
     if(color.isValid())
     {
@@ -146,7 +153,12 @@ void fontpicker::on_resetSettings_clicked()
             ui->textScroll->item(i)->setTextColor(QColor(0,0,0,200));                           //  reset text color
             ui->textScroll->item(i)->setSizeHint(QSize(0, textSizeChanger_DVALUE + 50));        //  reset QListWidgetItem size policy
         }
-    }                                                                                           //
+    }
 
     ui->textScroll->setStyleSheet("padding-left: 20px; background-color: rgb(255, 255, 255);"); //  reset background color
+    qApp->setStyleSheet("QListView::item:selected{color: rgba(0,0,0,200)}"                      // reset on hover, active, !active etc..
+                        "QListView::item:selected:!active{color: rgba(0,0,0,200)}"
+                        "QListView::item:selected:active{color: rgba(0,0,0,200)}"
+                        "QListView::item:hover{color: rgba(0,0,0,200)}");
 }
+
