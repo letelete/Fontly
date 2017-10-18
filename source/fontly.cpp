@@ -14,11 +14,6 @@ fontly::fontly(QWidget *parent) :
     on_fontPickerButton_clicked();
 }
 
-fontly::~fontly()
-{
-    delete ui;
-}
-
 // ------------- BASIC FUNCTIONS (drag window, action buttons) -------------------
 
 void fontly::mousePressEvent(QMouseEvent *event)
@@ -137,5 +132,10 @@ void fontly::on_websiteButton_clicked()
     QDesktopServices::openUrl(QUrl(url));
 }
 
+
+fontly::~fontly()
+{
+    delete ui;
+}
 
 

@@ -32,6 +32,7 @@ private slots:
     void on_textColor_clicked();
     void on_textBackgroundColor_clicked();
     void on_resetSettings_clicked();
+    void on_search_textChanged();
 
 private:
     Ui::fontpicker *ui;

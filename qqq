@@ -1,0 +1,157 @@
+[33mcommit cf145f17cc6dffe7484d4fbaa846c697e89796f1[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Bruno Kawka <brunokawka@gmail.com>
+Date:   Sat Oct 14 12:28:45 2017 +0200
+
+    added on hover, pressed, active styles to this retarded, shitty list
+
+[33mcommit 4f53a7a95098d4f8be7b32dc48c385ce253f1c8b[m
+Author: Bruno Kawka <brunokawka@gmail.com>
+Date:   Fri Oct 13 22:42:04 2017 +0200
+
+    bugs fixed, cleaner code,
+    improved textiSizeChanger
+
+[33mcommit 5dc26577305d5263af5be0097a286714695b5ca7[m
+Author: Bruno Kawka <brunokawka@gmail.com>
+Date:   Mon Oct 9 18:13:21 2017 +0200
+
+    Updated .gitignore
+
+[33mcommit a77ce4cec7c9dab371505c054b750e107929ebc4[m
+Author: Bruno Kawka <brunokawka@gmail.com>
+Date:   Mon Oct 9 18:12:10 2017 +0200
+
+    Whoops..
+
+[33mcommit 512c8d9479e3c5841673c3f5e26e0ae9c750b4de[m
+Author: Bruno Kawka <brunokawka@gmail.com>
+Date:   Mon Oct 9 18:09:55 2017 +0200
+
+    Splited code to classes, added: switchable menu tabs, temporary on hover/press effect to buttons. Fixed: bottom border on resizing, dragable app window.
+
+[33mcommit bdc7ca0aba200519da8d119e4efe06c826d1d2ae[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Mon Oct 9 17:25:42 2017 +0200
+
+    removing because of renamed files
+
+[33mcommit 7fbbb3eca8951e8587bc4f3f7211cccfe887a225[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Wed Oct 4 22:54:38 2017 +0200
+
+    Color picker remember the last color from now
+
+[33mcommit e809e8507cd4fca9080b27cde090488523a90b26[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Wed Oct 4 22:07:57 2017 +0200
+
+    Improved contrast setter function
+
+[33mcommit 1e46bf2a89d152c4aa95d3812edaf6696e84b415[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Wed Oct 4 01:02:58 2017 +0200
+
+    Added contrast setter function to QListView items
+
+[33mcommit ec015b25789b2920bfde9cab24a3bd6fcd1c03a3[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Mon Oct 2 18:30:21 2017 +0200
+
+    fix: better size slider logic, psuedo contrast setter
+
+[33mcommit 3d6c41fe3943a0959610006c1d1d862199fe7b59[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Mon Oct 2 18:23:26 2017 +0200
+
+    style: UI changes{font, highlighted tab, author position, rounded font info labels, active tab buttons
+
+[33mcommit 79084d4f7224b4013d9b4e62bfc5e624e4d17448[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Mon Oct 2 15:07:09 2017 +0200
+
+    Added .gitignore
+
+[33mcommit a2688d380c6d36a80ac59c41ff9e999886fd64da[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Mon Oct 2 01:30:06 2017 +0200
+
+    Improved text size function
+
+[33mcommit f74166599edc935392a5d15d0a667180f09de79e[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Sun Oct 1 22:25:45 2017 +0200
+
+    Added slider for setting a text size/Updated UI/Working buttons
+
+[33mcommit b0d2cb1c641cb28d1d217f64261856ebab2ef538[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Sun Oct 1 17:14:35 2017 +0200
+
+    Updated UI/ Resize icon changed
+
+[33mcommit da91adfaca5f205ea7c9e78e2afe2b13abf24e90[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Sun Oct 1 14:08:14 2017 +0200
+
+    Added necessary icons
+
+[33mcommit f101f9517083e36a32170dbd5a300786113f80dc[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Sun Oct 1 12:29:49 2017 +0200
+
+    Removed build files
+
+[33mcommit 869ba036fc930706a58c4182aeec7aafbf73cecc[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Sun Oct 1 03:30:32 2017 +0200
+
+    Aplied design to app(not done yet), added basic functions
+
+[33mcommit 2ca6a7ddf2876b2fd22a672c1ff26ae37290cb94[m
+Merge: e5318d5 bab0b32
+Author: letelete <brunokawka@gmail.com>
+Date:   Sat Sep 30 22:28:21 2017 +0200
+
+    Merge branch 'master' of https://www.github.com/letelete/Fontly
+
+[33mcommit e5318d5413fcbddc2a592d38147040f0f0e6754d[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Sat Sep 30 22:27:50 2017 +0200
+
+    Update
+
+[33mcommit bab0b32982baf9f80bc297cd0faab1edbf37266f[m
+Author: Bruno Kawka <brunokawka@gmail.com>
+Date:   Sat Sep 30 19:37:46 2017 +0200
+
+    Update README.md
+
+[33mcommit b69c513ab863d83dc905212eba7291708364c6c3[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Sat Sep 30 19:32:06 2017 +0200
+
+    App design idea
+
+[33mcommit 161b40ff980924798e0ae5d1d7fcb52642e695dc[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Sat Sep 30 00:08:41 2017 +0200
+
+    Added psd design_project file
+
+[33mcommit fd7acc5a89d9b87c807998dd11e61a52bf70b1f5[m
+Author: letelete <brunokawka@gmail.com>
+Date:   Fri Sep 29 23:57:06 2017 +0200
+
+    Added project files.
+
+[33mcommit e6124cc238fa54598442c324ff932ceec84f95b7[m
+Author: Bruno Kawka <brunokawka@gmail.com>
+Date:   Fri Sep 29 23:01:51 2017 +0200
+
+    Update README.md
+
+[33mcommit 9c279271ba26a292e0a9c19be1b4a057c8c0d6cb[m
+Author: Bruno Kawka <brunokawka@gmail.com>
+Date:   Fri Sep 29 22:40:46 2017 +0200
+
+    Initial commit

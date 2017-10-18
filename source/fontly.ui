@@ -10,11 +10,14 @@
     <height>720</height>
    </rect>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::StrongFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>fontly</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">/* FONT *
+   <string notr="true">/* FONT */
 /* app name */
 QLabel#fontlyLabel{
 	font: 75 18pt &quot;Roboto&quot;;
