@@ -25,10 +25,10 @@ fontpicker::fontpicker(QWidget *parent) :
 
     for(int i=0; i<fontsList.length(); i++)
     {
-        if(QFontDatabase().isScalable(fontsList[i]))
+        if(QFontDatabase().isSmoothlyScalable(fontsList[i]))
         {
-            QListWidgetItem *fontInfoLabel = new QListWidgetItem(QString(fontsList[i]) + "   |   " + QString::number(textSizeChanger_DVALUE));
-            QListWidgetItem *textLabel = new QListWidgetItem("Have a great day!");
+            QListWidgetItem *fontInfoLabel = new QListWidgetItem(QString(fontsList[i]) + "   |   " + QString::number(textSizeChanger_DVALUE) + " px");
+            QListWidgetItem *textLabel = new QListWidgetItem(QString("Have a great day!"));
 
             textLabel->setSizeHint(QSize(0,textSizeChanger_DVALUE+50));
             textLabel->setForeground(QColor(0,0,0,200));
@@ -42,7 +42,7 @@ fontpicker::fontpicker(QWidget *parent) :
 
             ui->textScroll->addItem(fontInfoLabel);
             ui->textScroll->addItem(textLabel);
-        }
+       }
     }
 }
 
@@ -162,18 +162,10 @@ void fontpicker::on_resetSettings_clicked()
             ui->textScroll->item(i)->setTextColor(QColor(0,0,0,200));                           //  reset text color
             ui->textScroll->item(i)->setSizeHint(QSize(0, textSizeChanger_DVALUE + 50));        //  reset QListWidgetItem size policy
         }
-        ui->textScroll->item(i+1)->setHidden(false);                                             //reset search function
-        ui->textScroll->item(i)->setHidden(false);                                               //reset search function
     }
 
-    ui->textScroll->setStyleSheet("padding-left: 20px; background-color: rgb(255, 255, 255);"); //  reset background color
-    qApp->setStyleSheet("QListView::item:selected{color: rgba(0,0,0,200)}"                      // reset on hover, active, !active etc..
-                        "QListView::item:selected:!active{color: rgba(0,0,0,200)}"
-                        "QListView::item:selected:active{color: rgba(0,0,0,200)}"
-                        "QListView::item:hover{color: rgba(0,0,0,200)}");
-
+    ui->textScroll->setStyleSheet("background-color: rgb(255, 255, 255);"); //  reset background color
 }
-
 
 fontpicker::~fontpicker()
 {
