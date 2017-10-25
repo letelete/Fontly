@@ -6,6 +6,8 @@
 #include <QUrl>
 #include <QDesktopServices>
 #include <QString>
+#include <QLabel>
+#include <QFrame>
 
 #include "fontpicker.h"
 #include "myfonts.h"
@@ -40,10 +42,11 @@ private slots:
     void on_facebookButton_clicked();
     void on_websiteButton_clicked();
 
+    void tab_style(bool, QLabel*, QFrame*, QFrame*, QString);
+
 private:
     Ui::fontly *ui;
     QPoint dragPosition;
-    QString url;
 
     fontpicker fontpickerTab;
     myfonts myfontsTab;

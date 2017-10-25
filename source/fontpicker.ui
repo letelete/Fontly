@@ -77,6 +77,9 @@ QScrollBar:vertical {
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
    </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
    <property name="horizontalScrollBarPolicy">
     <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
@@ -87,7 +90,7 @@ QScrollBar:vertical {
     <number>1</number>
    </property>
    <property name="verticalScrollMode">
-    <enum>QAbstractItemView::ScrollPerItem</enum>
+    <enum>QAbstractItemView::ScrollPerPixel</enum>
    </property>
    <property name="horizontalScrollMode">
     <enum>QAbstractItemView::ScrollPerItem</enum>

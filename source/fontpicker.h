@@ -34,11 +34,13 @@ private slots:
     void on_resetSettings_clicked();
     void on_search_textChanged();
 
+    void addItems_to_textScroll(int);
+
 private:
     Ui::fontpicker *ui;
-    QStringList fontsList;
+    QList<QString> fontsList;
     QFont textLabel_FONT;
-    int textSizeChanger_DVALUE; // default value of textsizechanger
+    unsigned int textSizeChanger_DVALUE;
 };
 
 #endif // FONTPICKER_H

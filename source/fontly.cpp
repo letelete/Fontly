@@ -57,78 +57,65 @@ void fontly::on_minimize_clicked()
 
 // ------------------------------------- TABS -------------------------------------
 
+void fontly::tab_style(bool isTabActive, QLabel *label, QFrame *icon, QFrame *isActive, QString iconName)
+{
+    QString textColor = "color: rgba(0,0,0,.35)", backgroundColor = "background-color: rgb(245,245,245)";
+
+    if(isTabActive)
+    {
+        textColor = "color: #fff";
+        backgroundColor = "background-color: rgb(38, 50, 56)";
+    }
+
+    label->setStyleSheet(textColor);
+    icon->setStyleSheet(QString("image: url(:/assets/icons/" + iconName + ")"));
+    isActive->setStyleSheet(backgroundColor);
+}
 
 void fontly::on_fontPickerButton_clicked()
 {
     ui->currentWindow->setCurrentIndex(1);
+    tab_style(true, ui->fontPickerLabel, ui->fontPickerIcon, ui->fontPickerIsActive, "fontpickerACTIVE.png");
 
-    ui->fontPickerLabel->setStyleSheet(QString("color: #fff"));
-    ui->fontPickerIcon->setStyleSheet(QString("image: url(:/assets/icons/fontpickerACTIVE.png)"));
-    ui->fontPickerIsActive->setStyleSheet(QString("background-color: rgb(38, 50, 56)"));
-
-    ui->myFontsLabel->setStyleSheet(QString("color: rgba(0,0,0,.35)"));
-    ui->myFontsIcon->setStyleSheet(QString("image: url(:/assets/icons/myfonts.png);"));
-    ui->myFontsIsActive->setStyleSheet(QString("background-color: rgb(245,245,245)"));
-
-    ui->settingsLabel->setStyleSheet(QString("color: rgba(0,0,0,.35)"));
-    ui->settingsIcon->setStyleSheet(QString("image: url(:/assets/icons/settings.png);"));
-    ui->settingsIsActive->setStyleSheet(QString("background-color: rgb(245,245,245)"));
-
+    tab_style(false, ui->myFontsLabel, ui->myFontsIcon, ui->myFontsIsActive, "myfonts.png");
+    tab_style(false, ui->settingsLabel, ui->settingsIcon, ui->settingsIsActive, "settings.png");
 }
 
 void fontly::on_myFontsButton_clicked()
 {
-
     ui->currentWindow->setCurrentIndex(2);
+    tab_style(true, ui->myFontsLabel, ui->myFontsIcon, ui->myFontsIsActive, "myfontsACTIVE.png");
 
-    ui->myFontsLabel->setStyleSheet(QString("color: #fff"));
-    ui->myFontsIcon->setStyleSheet(QString("image: url(:/assets/icons/myfontsACTIVE.png)"));
-    ui->myFontsIsActive->setStyleSheet(QString("background-color: rgb(38, 50, 56)"));
-
-    ui->fontPickerLabel->setStyleSheet(QString("color: rgba(0,0,0,.35)"));
-    ui->fontPickerIcon->setStyleSheet(QString("image: url(:/assets/icons/fontpicker.png);"));
-    ui->fontPickerIsActive->setStyleSheet(QString("background-color: rgb(245,245,245)"));
-
-    ui->settingsLabel->setStyleSheet(QString("color: rgba(0,0,0,.35)"));
-    ui->settingsIcon->setStyleSheet(QString("image: url(:/assets/icons/settings.png);"));
-    ui->settingsIsActive->setStyleSheet(QString("background-color: rgb(245,245,245)"));
+    tab_style(false, ui->fontPickerLabel, ui->fontPickerIcon, ui->fontPickerIsActive, "fontpicker.png");
+    tab_style(false, ui->settingsLabel, ui->settingsIcon, ui->settingsIsActive, "settings.png");
 }
 
 void fontly::on_settingsButton_clicked()
 {
-
     ui->currentWindow->setCurrentIndex(3);
+    tab_style(true, ui->settingsLabel, ui->settingsIcon, ui->settingsIsActive, "settingsACTIVE.png");
 
-    ui->settingsLabel->setStyleSheet(QString("color: #fff"));
-    ui->settingsIcon->setStyleSheet(QString("image: url(:/assets/icons/settingsACTIVE.png)"));
-    ui->settingsIsActive->setStyleSheet(QString("background-color: rgb(38, 50, 56)"));
-
-    ui->fontPickerLabel->setStyleSheet(QString("color: rgba(0,0,0,.35)"));
-    ui->fontPickerIcon->setStyleSheet(QString("image: url(:/assets/icons/fontpicker.png);"));
-    ui->fontPickerIsActive->setStyleSheet(QString("background-color: rgb(245,245,245)"));
-
-    ui->myFontsLabel->setStyleSheet(QString("color: rgba(0,0,0,.35)"));
-    ui->myFontsIcon->setStyleSheet(QString("image: url(:/assets/icons/myfonts.png);"));
-    ui->myFontsIsActive->setStyleSheet(QString("background-color: rgb(245,245,245)"));\
+    tab_style(false, ui->myFontsLabel, ui->myFontsIcon, ui->myFontsIsActive, "myfonts.png");
+    tab_style(false, ui->fontPickerLabel, ui->fontPickerIcon, ui->fontPickerIsActive, "fontpicker.png");
 }
 
 // ------------------------------ SOCIAL URLS -------------------------------------
 
 void fontly::on_githubButton_clicked()
 {
-    url = ("https://github.com/letelete/fontly");
+    QString url = ("https://github.com/letelete/fontly");
     QDesktopServices::openUrl(QUrl(url));
 }
 
 void fontly::on_facebookButton_clicked()
 {
-    url = ("https://www.facebook.com/00000000000oo000000000000000");
+    QString url = ("https://www.facebook.com/00000000000oo000000000000000");
     QDesktopServices::openUrl(QUrl(url));
 }
 
 void fontly::on_websiteButton_clicked()
 {
-    url = ("http://www.brunokawka.pl");
+    QString url = ("http://www.brunokawka.pl");
     QDesktopServices::openUrl(QUrl(url));
 }
 
