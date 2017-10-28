@@ -40,7 +40,7 @@ private:
     Ui::fontpicker *ui;
     QList<QString> fontsList;
     QFont textLabel_FONT;
-    unsigned int textSizeChanger_DVALUE;
+    unsigned textSizeChanger_DVALUE;
 };
 
 #endif // FONTPICKER_H

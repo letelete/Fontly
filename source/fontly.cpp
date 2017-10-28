@@ -18,7 +18,8 @@ fontly::fontly(QWidget *parent) :
 
 void fontly::mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton) {
+    if (event->button() == Qt::LeftButton)
+    {
         dragPosition = event->globalPos() - frameGeometry().topLeft();
         event->accept();
     }
@@ -26,7 +27,8 @@ void fontly::mousePressEvent(QMouseEvent *event)
 
 void fontly::mouseMoveEvent(QMouseEvent *event)
 {
-    if (event->buttons() & Qt::LeftButton && event->globalY() - frameGeometry().topLeft().y() <= 40) {
+    if (event->buttons() & Qt::LeftButton && event->globalY() - frameGeometry().topLeft().y() <= 40)
+    {
            move(event->globalPos() - dragPosition);
            event->accept();
     }
@@ -39,14 +41,15 @@ void fontly::on_close_clicked()
 
 void fontly::on_maximize_clicked()
 {
-    if(this->size().height() == 720) {
-        this->resize(QSize(1280, 405));
-        ui->bottomBorder->move(QPoint(0,380));
+    if(this->size().height() == 720)
+    {
+        this->resize(QSize(1280, 450));
+        ui->bottomBorder->move(QPoint(0,425));
     }
     else
     {
         this->resize(QSize(1280,720));
-        ui->bottomBorder->move(QPoint(0,670));
+        ui->bottomBorder->move(QPoint(0,680));
     }
 }
 
@@ -59,12 +62,12 @@ void fontly::on_minimize_clicked()
 
 void fontly::tab_style(bool isTabActive, QLabel *label, QFrame *icon, QFrame *isActive, QString iconName)
 {
-    QString textColor = "color: rgba(0,0,0,.35)", backgroundColor = "background-color: rgb(245,245,245)";
+    QString textColor = "color: rgba(255, 255, 255, 0.5)", backgroundColor = "#37474f";
 
     if(isTabActive)
     {
-        textColor = "color: #fff";
-        backgroundColor = "background-color: rgb(38, 50, 56)";
+        textColor = "color: rgba(255, 255, 255, 0.9)";
+        backgroundColor = "background-color: #263238";
     }
 
     label->setStyleSheet(textColor);

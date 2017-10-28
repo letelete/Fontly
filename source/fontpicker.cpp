@@ -85,7 +85,7 @@ void fontpicker::on_textSizeChanger_valueChanged(int value)
 
     for(int i=0; i<ui->textScroll->count(); i ++)
     {
-        if(i == 0 || i % 2 == 0)
+        if(i % 2 == 0)
         {
             ui->textScroll->item(i)->setText(ui->textScroll->item(i+1)->font().family() + "  |  " + QString::number(textFont.pixelSize()) + " px");
         }
