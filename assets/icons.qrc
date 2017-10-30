@@ -1,0 +1,40 @@
+<RCC>
+    <qresource prefix="/assets">
+        <file>icons/addedtofav.png</file>
+        <file>icons/addedtofolder.png</file>
+        <file>icons/addtofav.png</file>
+        <file>icons/addtofavHOVER.png</file>
+        <file>icons/addtofolder.png</file>
+        <file>icons/addtofolderHOVER.png</file>
+        <file>icons/close.png</file>
+        <file>icons/closeINNACTIVE.png</file>
+        <file>icons/fontpicker.png</file>
+        <file>icons/fontpickerACTIVE.png</file>
+        <file>icons/maximize.png</file>
+        <file>icons/maximizeINNACTIVE.png</file>
+        <file>icons/minimize.png</file>
+        <file>icons/minimizeINNACTIVE.png</file>
+        <file>icons/myfonts.png</file>
+        <file>icons/myfontsACTIVE.png</file>
+        <file>icons/resetSettings.png</file>
+        <file>icons/resetSettingsHOVER.png</file>
+        <file>icons/search.png</file>
+        <file>icons/settings.png</file>
+        <file>icons/settingsACTIVE.png</file>
+        <file>icons/socialFB.png</file>
+        <file>icons/socialGITHUB.png</file>
+        <file>icons/socialWWW.png</file>
+        <file>icons/sortByDate.png</file>
+        <file>icons/sortByDateACTIVE.png</file>
+        <file>icons/sortByName.png</file>
+        <file>icons/sortByNameACTIVE.png</file>
+        <file>icons/sortByPopularity.png</file>
+        <file>icons/sortByPopularityACTIVE.png</file>
+        <file>icons/textBackgroundColor.png</file>
+        <file>icons/textColor.png</file>
+        <file>icons/addNewFolder.png</file>
+        <file>icons/addNewFolderHOVER.png</file>
+        <file>icons/textBackgroundColorHOVER.png</file>
+        <file>icons/textColorHOVER.png</file>
+    </qresource>
+</RCC>

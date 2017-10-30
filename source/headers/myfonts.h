@@ -2,6 +2,7 @@
 #define MYFONTS_H
 
 #include <QWidget>
+#include <QListWidget>
 
 namespace Ui {
 class myfonts;
@@ -14,6 +15,10 @@ class myfonts : public QWidget
 public:
     explicit myfonts(QWidget *parent = 0);
     ~myfonts();
+
+private slots:
+
+    void on_addNewFolderIcon_clicked();
 
 private:
     Ui::myfonts *ui;

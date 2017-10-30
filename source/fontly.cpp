@@ -1,4 +1,4 @@
-#include "fontly.h"
+#include "headers/fontly.h"
 #include "ui_fontly.h"
 
 fontly::fontly(QWidget *parent) :

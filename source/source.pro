@@ -31,19 +31,19 @@ SOURCES += \
     settings.cpp
 
 HEADERS += \
-        fontly.h \
-    fontpicker.h \
-    myfonts.h \
-    settings.h
+        headers\fontly.h \
+    headers\fontpicker.h \
+    headers\myfonts.h \
+    headers\settings.h
 
 FORMS += \
-        fontly.ui \
-    fontpicker.ui \
-    myfonts.ui \
-    settings.ui
+        ui\fontly.ui \
+    ui\fontpicker.ui \
+    ui\myfonts.ui \
+    ui\settings.ui
 
 RESOURCES += \
-    icons.qrc
+    ..\assets\icons.qrc
 
 CONFIG += c++11
 

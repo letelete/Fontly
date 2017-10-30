@@ -1,5 +1,7 @@
-#include "fontpicker.h"
+#include "headers/fontpicker.h"
 #include "ui_fontpicker.h"
+
+#include <QLayout>
 
 fontpicker::fontpicker(QWidget *parent) :
     QWidget(parent),
@@ -17,7 +19,7 @@ fontpicker::fontpicker(QWidget *parent) :
     ui->fontApply->setPlaceholderText("Type something here..");
 
     ui->textScroll->setSelectionMode(QAbstractItemView::NoSelection);
-
+    ui->textScroll->setSpacing(10);
     fontsList = QFontDatabase().families();
 
     for(int i=0; i<fontsList.length(); i++)
@@ -34,7 +36,7 @@ void fontpicker::addItems_to_textScroll(int i)
             QListWidgetItem *textLabel = new QListWidgetItem(QString("Have a great day!"));
 
             textLabel_FONT.setPixelSize(textSizeChanger_DVALUE);
-            textLabel->setSizeHint(QSize(0,textSizeChanger_DVALUE+50));
+            textLabel->setSizeHint(QSize(0,textSizeChanger_DVALUE+20));
             textLabel->setForeground(QColor(0,0,0,200));
             textLabel_FONT.setFamily(fontsList[i]);
             textLabel->setFont(textLabel_FONT);
@@ -68,7 +70,7 @@ void fontpicker::on_search_textChanged()
             ui->textScroll->item(i)->setHidden(false);
         }
 
-        if(!(ui->textScroll->item(i)->font().family().startsWith((ui->search->text()), Qt::CaseInsensitive)))
+        if(!(ui->textScroll->item(i)->font().family().contains((ui->search->text()), Qt::CaseInsensitive)))
         {
             ui->textScroll->item(i-1)->setHidden(true);
             ui->textScroll->item(i)->setHidden(true);

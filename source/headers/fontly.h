@@ -9,9 +9,9 @@
 #include <QLabel>
 #include <QFrame>
 
-#include "fontpicker.h"
-#include "myfonts.h"
-#include "settings.h"
+#include "headers/fontpicker.h"
+#include "headers/myfonts.h"
+#include "headers/settings.h"
 
 namespace Ui {
 class fontly;
