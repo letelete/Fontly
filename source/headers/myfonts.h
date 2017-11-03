@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QListWidget>
 
+#include "headers/myfonts_folders.h"
+#include "headers/myfonts_folderopen.h"
+
 namespace Ui {
 class myfonts;
 }
@@ -18,10 +21,10 @@ public:
 
 private slots:
 
-    void on_addNewFolderIcon_clicked();
-
 private:
     Ui::myfonts *ui;
+    myfonts_folderOpen mf_folderopen;
+    myfonts_folders mf_folder;
 };
 
 #endif // MYFONTS_H

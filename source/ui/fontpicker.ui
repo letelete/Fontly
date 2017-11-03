@@ -14,47 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QListView:focus {
-   border: none;
-   outline: none;
-}
-
-QScrollBar:vertical {
-     border: 2px solid #b8b8b8;
-     background: #f5f5f5;
-     width: 15px;
-     margin: 22px 0 22px 0;
- }
- QScrollBar::handle:vertical {
-     background: #37474f;
-     min-height: 20px;
- }
- QScrollBar::add-line:vertical {
-     border: 2px solid #b8b8b8;
-     background: #f5f5f5;
-     height: 20px;
-     subcontrol-position: bottom;
-     subcontrol-origin: margin;
- }
-
- QScrollBar::sub-line:vertical {
-     border: 2px solid #b8b8b8;
-     background: #f5f5f5;
-     height: 20px;
-     subcontrol-position: top;
-     subcontrol-origin: margin;
- }
- QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-     border: none;
-     width: 3px;
-     height: 3px;
-     background: #37474f;
- }
-
- QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-     background: #f5f5f5;
- }
-
+   <string notr="true">
 QPushButton#resetSettings:hover{
 	image: url(:/assets/icons/resetSettingsHOVER.png);
 }
@@ -100,11 +60,17 @@ QPushButton#textBackgroundColor:hover {
    <property name="autoScrollMargin">
     <number>1</number>
    </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::NoSelection</enum>
+   </property>
    <property name="verticalScrollMode">
     <enum>QAbstractItemView::ScrollPerPixel</enum>
    </property>
    <property name="horizontalScrollMode">
     <enum>QAbstractItemView::ScrollPerItem</enum>
+   </property>
+   <property name="spacing">
+    <number>5</number>
    </property>
   </widget>
   <widget class="QFrame" name="toolsArea">

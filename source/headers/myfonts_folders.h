@@ -15,6 +15,10 @@ public:
     explicit myfonts_folders(QWidget *parent = 0);
     ~myfonts_folders();
 
+private slots:
+    void on_addNewFolderIcon_clicked();
+    void addWidgets(QWidget*);
+
 private:
     Ui::myfonts_folders *ui;
 };

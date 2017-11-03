@@ -35,10 +35,12 @@ QPushButton#sortByDate:hover {
 	image: url(:/assets/icons/sortByDateACTIVE.png);
 }
 
-QPushButton#addNewFolderIcon { image: url(:/assets/icons/addNewFolder.png);}
-QPushButton#addNewFolderIcon:hover { image: url(:/assets/icons/addNewFolderHOVER.png);}
 
-QListView::item{padding-left: 50px}</string>
+
+
+
+
+</string>
   </property>
   <widget class="QFrame" name="toolsArea">
    <property name="geometry">
@@ -70,8 +72,7 @@ QListView::item{padding-left: 50px}</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(57, 71, 79);
-color: #f5f5f5;
-border-left: 1px solid rgb(39, 50, 56);</string>
+color: #f5f5f5;</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -143,8 +144,11 @@ border-bottom:none;</string>
      <string/>
     </property>
    </widget>
+   <zorder>sortByDate</zorder>
+   <zorder>sortByName</zorder>
+   <zorder>sortByPopularity</zorder>
   </widget>
-  <widget class="QListWidget" name="listWidget">
+  <widget class="QStackedWidget" name="myFontsTabs">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -153,42 +157,9 @@ border-bottom:none;</string>
      <height>510</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(39, 50, 56); border: none; color: #f5f5f5;</string>
-   </property>
+   <widget class="QWidget" name="WelcomePage"/>
+   <widget class="QWidget" name="widget"/>
   </widget>
-  <widget class="QWidget" name="addNewFolder" native="true">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>170</y>
-     <width>200</width>
-     <height>200</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(57, 71, 79);
-color: #f5f5f5;
-border: none;</string>
-   </property>
-   <widget class="QPushButton" name="addNewFolderIcon">
-    <property name="geometry">
-     <rect>
-      <x>65</x>
-      <y>65</y>
-      <width>70</width>
-      <height>70</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <zorder>listWidget</zorder>
-  <zorder>toolsArea</zorder>
-  <zorder>widgetsPanel</zorder>
-  <zorder>addNewFolder</zorder>
  </widget>
  <resources/>
  <connections/>

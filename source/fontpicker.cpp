@@ -1,8 +1,6 @@
 #include "headers/fontpicker.h"
 #include "ui_fontpicker.h"
 
-#include <QLayout>
-
 fontpicker::fontpicker(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::fontpicker)
@@ -19,7 +17,6 @@ fontpicker::fontpicker(QWidget *parent) :
     ui->fontApply->setPlaceholderText("Type something here..");
 
     ui->textScroll->setSelectionMode(QAbstractItemView::NoSelection);
-    ui->textScroll->setSpacing(10);
     fontsList = QFontDatabase().families();
 
     for(int i=0; i<fontsList.length(); i++)

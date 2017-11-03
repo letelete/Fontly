@@ -28,19 +28,25 @@ SOURCES += \
         fontly.cpp \
     fontpicker.cpp \
     myfonts.cpp \
-    settings.cpp
+    settings.cpp \
+    myfonts_folders.cpp \
+    myfonts_folderopen.cpp
 
 HEADERS += \
         headers\fontly.h \
     headers\fontpicker.h \
     headers\myfonts.h \
-    headers\settings.h
+    headers\settings.h \
+    headers/myfonts_folders.h \
+    headers/myfonts_folderopen.h
 
 FORMS += \
         ui\fontly.ui \
     ui\fontpicker.ui \
     ui\myfonts.ui \
-    ui\settings.ui
+    ui\settings.ui \
+    ui/myfonts_folders.ui \
+    ui/myfonts_folderopen.ui
 
 RESOURCES += \
     ..\assets\icons.qrc
