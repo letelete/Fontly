@@ -1,4 +1,4 @@
-#include "headers/fontly.h"
+#include "core/fontly_main.hpp"
 #include <QApplication>
 
 int main(int argc, char *argv[])
