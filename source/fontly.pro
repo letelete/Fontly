@@ -26,31 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
     sections\fontpicker.cpp \
-    sections\myfonts.cpp \
-    sections\settings.cpp \
-    sections\myfonts_folders.cpp \
-    sections\myfonts_folderopen.cpp \
     core\fontly_main.cpp \
-    core/sections.cpp \
     core/shadow.cpp
 
 HEADERS += \
         core\fontly_main.hpp \
     sections\includes\fontpicker.hpp \
-    sections\includes\myfonts.hpp \
-    sections\includes\settings.hpp \
-    sections\includes\myfonts_folderopen.hpp \
-    sections\includes\myfonts_folders.hpp \
-    core/sections.hpp \
     core/shadow.hpp
 
 FORMS += \
         ui\fontly.ui \
     ui\fontpicker.ui \
-    ui\myfonts.ui \
-    ui\settings.ui \
-    ui/myfonts_folders.ui \
-    ui/myfonts_folderopen.ui
 
 RESOURCES += \
     ..\assets\icons.qrc

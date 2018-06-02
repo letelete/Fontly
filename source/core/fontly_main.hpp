@@ -6,10 +6,6 @@
 #include <QUrl>
 
 #include "sections/includes/fontpicker.hpp"
-#include "sections/includes/myfonts.hpp"
-#include "sections/includes/settings.hpp"
-
-#include "core/sections.hpp"
 #include "core/shadow.hpp"
 
 namespace Ui {
@@ -31,26 +27,20 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
 
 private slots:
-    void resizeWindow();
+    void resizeWindowDependlyOnCurrentSize();
 
-    void on_fontPickerButton_clicked();
-    void on_myFontsButton_clicked();
-    void on_settingsButton_clicked();
     void on_githubButton_clicked();
     void on_websiteButton_clicked();
 
 private:
     void open_url(QString URL);
-    void setCurrentWindowIndex(int);
+    void updateBottomBorderPosition(int windowHeight);
+    void setBottomBorderPosition(int newPosition);
 
     Ui::fontly *ui;
     QPoint dragPosition;
 
     fontpicker fontpickerTab;
-    myfonts myfontsTab;
-    settings settingsTab;
-
-    sections *sectionTabs;
     shadow *setShadow;
 };
 
