@@ -1,18 +1,8 @@
 <RCC>
     <qresource prefix="/assets">
-        <file>icons/addtofav.svg</file>
-        <file>icons/myfonts.svg</file>
-        <file>icons/addedtofav.svg</file>
-        <file>icons/addedtofolder.svg</file>
-        <file>icons/addNewFolder.svg</file>
-        <file>icons/addNewFolderHOVER.svg</file>
-        <file>icons/addtofavHOVER.svg</file>
-        <file>icons/addtofolder.svg</file>
-        <file>icons/addtofolderHOVER.svg</file>
         <file>icons/close.svg</file>
         <file>icons/maximize.svg</file>
         <file>icons/minimize.svg</file>
-        <file>icons/myfontsACTIVE.svg</file>
         <file>icons/resetSettings.svg</file>
         <file>icons/resetSettingsHOVER.svg</file>
         <file>icons/search.svg</file>
@@ -21,12 +11,5 @@
         <file>icons/textBackgroundColorHOVER.svg</file>
         <file>icons/textColor.svg</file>
         <file>icons/textColorHOVER.svg</file>
-        <file>icons/settings.svg</file>
-        <file>icons/settingsACTIVE.svg</file>
-        <file>icons/fontpicker.svg</file>
-        <file>icons/fontpickerACTIVE.svg</file>
-        <file>icons/socialWWW.svg</file>
-        <file>icons/down_arrow.svg</file>
-        <file>icons/up_arrow.svg</file>
     </qresource>
 </RCC>
