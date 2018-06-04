@@ -5,8 +5,9 @@
 #include <QDesktopServices>
 #include <QUrl>
 
-#include "sections/includes/fontpicker.hpp"
+#include "fontpicker/fontpicker.hpp"
 #include "core/shadow.hpp"
+#include "core/jsonwrapper.hpp"
 
 namespace Ui {
 class fontly;
@@ -28,20 +29,19 @@ protected:
 
 private slots:
     void resizeWindowDependlyOnCurrentSize();
-
     void on_githubButton_clicked();
-    void on_websiteButton_clicked();
 
 private:
-    void open_url(QString URL);
-    void updateBottomBorderPosition(int windowHeight);
-    void setBottomBorderPosition(int newPosition);
-
     Ui::fontly *ui;
     QPoint dragPosition;
 
     fontpicker fontpickerTab;
     shadow *setShadow;
+    jsonWrapper *stringsWrapper;
+
+    void open_url(QString URL);
+    void updateBottomBorderPosition(int windowHeight);
+    void setBottomBorderPosition(int newPosition);
 };
 
 #endif // FONTLY_H

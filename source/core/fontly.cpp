@@ -1,4 +1,4 @@
-#include "core/fontly_main.hpp"
+#include "core/fontly.hpp"
 #include "ui_fontly.h"
 
 fontly::fontly(QWidget *parent) :
@@ -6,6 +6,8 @@ fontly::fontly(QWidget *parent) :
     ui(new Ui::fontly)
 {
     ui->setupUi(this);
+
+    stringsWrapper = new jsonWrapper("../source/config/strings.json");
 
     QColor shadowColor(0,0,0,50);
     setShadow = new shadow(5, 1, 0, shadowColor, this);
@@ -69,12 +71,7 @@ void fontly::open_url(QString URL)
 
 void fontly::on_githubButton_clicked()
 {
-    open_url(QString("https://github.com/letelete/Fontly"));
-}
-
-void fontly::on_websiteButton_clicked()
-{
-    open_url(QString("http://brunokawka.pl/"));
+    open_url(stringsWrapper->getElementFromObject("githubUrl"));
 }
 
 fontly::~fontly()

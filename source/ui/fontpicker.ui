@@ -332,6 +332,9 @@ border:none;
     <property name="styleSheet">
      <string notr="true"/>
     </property>
+    <property name="pageStep">
+     <number>1</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>

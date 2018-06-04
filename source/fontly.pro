@@ -25,14 +25,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    sections\fontpicker.cpp \
-    core\fontly_main.cpp \
-    core/shadow.cpp
+    core/shadow.cpp \
+    fontpicker/fontpicker.cpp \
+    core/jsonwrapper.cpp \
+    core/fontly.cpp \
 
 HEADERS += \
-        core\fontly_main.hpp \
-    sections\includes\fontpicker.hpp \
-    core/shadow.hpp
+    core/shadow.hpp \
+    fontpicker/fontpicker.hpp \
+    core/jsonwrapper.hpp \
+    core/fontly.hpp \
+
 
 FORMS += \
         ui\fontly.ui \
@@ -43,4 +46,9 @@ RESOURCES += \
 
 CONFIG += c++11
 
+MY_RESOURCES = \
+  config/strings.json
 
+OTHER_FILES += $$MY_RESOURCES
+
+DISTFILES +=
