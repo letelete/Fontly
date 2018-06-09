@@ -14,7 +14,7 @@
 Fontly is a desktop app that helps choosing perfect font for your next project. <br />
 It also let you preview how your favourite's font looks with different color and on unique background or even if It's behaves well independently to size!
 
-# Features
+## ✨ Features
 
 * Shows up every font locally installed on your machine by creating scrollable list
 * Has customizing functions such as text color, background color and text size
