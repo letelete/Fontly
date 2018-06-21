@@ -1,8 +1,0 @@
-{
-    "githubUrl": "https://github.com/letelete/Fontly",
-    "searchPlaceholder": "Search...",
-    "textPresencePlaceholder": "Type something here...",
-    "defaultTextPresence": "The quick brown fox jumps over the lazy dog",
-    "foregroundColorDialogTitle": "Choose text color",
-    "backgroundColorDialogTitle": "Choose background color"
-}

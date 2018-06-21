@@ -5,7 +5,7 @@ fontpicker::fontpicker(QWidget *parent)
     : QWidget(parent), ui(new Ui::fontpicker) {
   ui->setupUi(this);
 
-  stringsWrapper = new jsonWrapper("../source/config/strings.json");
+  data = new const_data();
 
   connectUiElementsWithSlots();
   setDefaultValuesForTextSizeChanger();
@@ -36,16 +36,15 @@ void fontpicker::connectUiElementsWithSlots() {
 }
 
 void fontpicker::setDefaultValuesForTextSizeChanger() {
-  ui->textSizeChanger->setRange(SIZE_CHANGER_MIN_RANGE, SIZE_CHANGER_MAX_RANGE);
-  ui->textSizeChanger->setValue(DEFAULT_FONTS_TEXT_SIZE);
-  ui->textSizeChanger->setSliderPosition(DEFAULT_SLIDER_POSITION);
+  ui->textSizeChanger->setRange(data->getMinRangeOfTextSizeChanger(),
+                                data->getMaxRangeOfTextSizeChanger());
+  ui->textSizeChanger->setValue(data->getDefaultSliderPosition());
+  ui->textSizeChanger->setSliderPosition(data->getDefaultSliderPosition());
 }
 
 void fontpicker::setPlaceholdersForUiElements() {
-  ui->search->setPlaceholderText(
-      stringsWrapper->getElementFromObject("searchPlaceholder"));
-  ui->fontApply->setPlaceholderText(
-      stringsWrapper->getElementFromObject("textPresencePlaceholder"));
+  ui->search->setPlaceholderText(data->getSearchPlaceholder());
+  ui->fontApply->setPlaceholderText(data->getTextPresencePlaceholder());
 }
 
 QStringList fontpicker::getLocalFontsList() {
@@ -55,25 +54,25 @@ QStringList fontpicker::getLocalFontsList() {
 void fontpicker::setCustomText(QString str) {
   auto listLength = ui->fontsList->count();
   for (auto i = 1; i < listLength; i += 2)
-    ui->fontsList->item(i)->setText(str);
+      ui->fontsList->item(i)->setText(str);
 }
 
 void fontpicker::addFontLabelToScrollView(int fontNumber) {
   QString fontInfoLabel_TEXT = fontsList[fontNumber] + "   |   " +
-                               QString::number(DEFAULT_FONTS_TEXT_SIZE) + " px";
+                               QString::number(data->getDefaultFontsTextSize()) + " px";
 
   QListWidgetItem *fontInfoLabel = new QListWidgetItem(fontInfoLabel_TEXT);
-  QListWidgetItem *textLabel = new QListWidgetItem(
-      stringsWrapper->getElementFromObject("defaultTextPresence"));
+  QListWidgetItem *textLabel =
+      new QListWidgetItem(data->getDefaultTextPresence());
 
   QColor textColor(0, 0, 0, 200);
-  QSize textLabel_SIZE(0, DEFAULT_TEXT_LABEL_SIZE);
+  QSize textLabel_SIZE(0, data->getDefaultTextLabelSize());
 
   QFont fontInfo_FONT("Roboto", 10);
   QColor fontInfo_BACKGROUNDCOLOR(245, 245, 245);
   QSize fontInfoLabel_SIZE(1000, 40);
 
-  textLabel_FONT.setPixelSize(DEFAULT_FONTS_TEXT_SIZE);
+  textLabel_FONT.setPixelSize(data->getDefaultFontsTextSize());
   textLabel->setSizeHint(textLabel_SIZE);
   textLabel->setForeground(textColor);
   textLabel_FONT.setFamily(fontsList[fontNumber]);
@@ -115,8 +114,8 @@ void fontpicker::setTextSize(int value) {
       ui->fontsList->item(i)->setText(fontInfoLabel_TEXT);
     } else {
       textFont.setFamily(ui->fontsList->item(i)->font().family());
-      QSize fontsList_SIZE(0, textFont.pixelSize() +
-                                  (DEFAULT_FONTS_TEXT_SIZE * 90 / 100));
+      QSize fontsList_SIZE(
+          0, textFont.pixelSize() + (data->getDefaultFontsTextSize() * 90 / 100));
 
       ui->fontsList->item(i)->setSizeHint(fontsList_SIZE);
       ui->fontsList->item(i)->setFont(textFont);
@@ -125,9 +124,9 @@ void fontpicker::setTextSize(int value) {
 }
 
 void fontpicker::setTextColor() {
-  QColor color = QColorDialog::getColor(
-      QColor(ui->fontsList->item(1)->textColor()), this,
-      stringsWrapper->getElementFromObject("foregroundColorDialogTitle"));
+  QColor color =
+      QColorDialog::getColor(QColor(ui->fontsList->item(1)->textColor()), this,
+                             data->getForegroundColorDialogTitle());
 
   if (color.isValid())
     for (auto i = 1; i < ui->fontsList->count(); i += 2)
@@ -136,11 +135,9 @@ void fontpicker::setTextColor() {
 
 void fontpicker::setBackgroundColor() {
   QColor color =
-      QColorDialog::getColor(
-          QColor(ui->fontsListBackground->palette().color(
-              ui->fontsList->backgroundRole())),
-          this,
-          stringsWrapper->getElementFromObject("backgroundColorDialogTitle"))
+      QColorDialog::getColor(QColor(ui->fontsListBackground->palette().color(
+                                 ui->fontsList->backgroundRole())),
+                             this, data->getBackgroundColorDialogTitle())
           .toHsv();
   QColor contrastBackgroundColor =
       color.value() < 60 ? color.darker(60) : color.darker(110);
@@ -180,12 +177,12 @@ void fontpicker::setBackgroundColor() {
 void fontpicker::resetSettings() {
   QFont textFont;
   QColor textColor(0, 0, 0, 200);
-  QSize fontsList_defaultSize(0, DEFAULT_TEXT_LABEL_SIZE);
+  QSize fontsList_defaultSize(0, data->getDefaultTextLabelSize());
   QString fontsList_defaultBackground("background-color: rgb(255, 255, 255);");
 
-  ui->textSizeChanger->setValue(DEFAULT_FONTS_TEXT_SIZE);
-  ui->textSizeChanger->setSliderPosition(DEFAULT_SLIDER_POSITION);
-  textFont.setPixelSize(DEFAULT_FONTS_TEXT_SIZE);
+  ui->textSizeChanger->setValue(data->getDefaultFontsTextSize());
+  ui->textSizeChanger->setSliderPosition(data->getDefaultSliderPosition());
+  textFont.setPixelSize(data->getDefaultFontsTextSize());
   ui->fontsListBackground->setStyleSheet(fontsList_defaultBackground);
 
   for (int i = 0; i < ui->fontsList->count(); i += 2) {

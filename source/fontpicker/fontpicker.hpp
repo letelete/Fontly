@@ -6,7 +6,7 @@
 #include <QLabel>
 #include <QListWidgetItem>
 
-#include "core/jsonwrapper.hpp"
+#include "core/const_data.hpp"
 #include "core/shadow.hpp"
 
 namespace Ui {
@@ -31,8 +31,7 @@ private slots:
 private:
   Ui::fontpicker *ui;
   shadow *setShadow;
-  jsonWrapper *stringsWrapper;
-  jsonWrapper *colorsWrapper;
+  const_data *data;
 
   QList<QString> fontsList;
   QFont textLabel_FONT;
@@ -43,12 +42,6 @@ private:
   void setPlaceholdersForUiElements();
 
   QStringList getLocalFontsList();
-
-  static const int DEFAULT_FONTS_TEXT_SIZE = 40;
-  static const int DEFAULT_SLIDER_POSITION = DEFAULT_FONTS_TEXT_SIZE;
-  static const int DEFAULT_TEXT_LABEL_SIZE = DEFAULT_FONTS_TEXT_SIZE + 30;
-  static const int SIZE_CHANGER_MIN_RANGE = 20;
-  static const int SIZE_CHANGER_MAX_RANGE = 150;
 };
 
 #endif // FONTPICKER_H

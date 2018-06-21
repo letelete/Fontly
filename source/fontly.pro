@@ -27,14 +27,14 @@ SOURCES += \
         main.cpp \
     core/shadow.cpp \
     fontpicker/fontpicker.cpp \
-    core/jsonwrapper.cpp \
     core/fontly.cpp \
+    core/const_data.cpp
 
 HEADERS += \
     core/shadow.hpp \
     fontpicker/fontpicker.hpp \
-    core/jsonwrapper.hpp \
     core/fontly.hpp \
+    core/const_data.hpp
 
 
 FORMS += \
@@ -46,9 +46,12 @@ RESOURCES += \
 
 CONFIG += c++11
 
+RC_FILE = myapp.rc
+
 MY_RESOURCES = \
   config/strings.json
 
 OTHER_FILES += $$MY_RESOURCES
 
 DISTFILES +=
+

@@ -5,7 +5,7 @@ fontly::fontly(QWidget *parent)
     : QWidget(parent, Qt::FramelessWindowHint), ui(new Ui::fontly) {
   ui->setupUi(this);
 
-  stringsWrapper = new jsonWrapper("../source/config/strings.json");
+  data = new const_data();
 
   QColor shadowColor(0, 0, 0, 50);
   setShadow = new shadow(5, 1, 0, shadowColor, this);
@@ -62,7 +62,7 @@ void fontly::setBottomBorderPosition(int newPositionInYAxis) {
 void fontly::open_url(QString URL) { QDesktopServices::openUrl(QUrl(URL)); }
 
 void fontly::on_githubButton_clicked() {
-  open_url(stringsWrapper->getElementFromObject("githubUrl"));
+  open_url(data->getGithubUrl());
 }
 
 fontly::~fontly() {

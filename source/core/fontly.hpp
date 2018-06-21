@@ -5,7 +5,7 @@
 #include <QMouseEvent>
 #include <QUrl>
 
-#include "core/jsonwrapper.hpp"
+#include "core/const_data.hpp"
 #include "core/shadow.hpp"
 #include "fontpicker/fontpicker.hpp"
 
@@ -36,7 +36,7 @@ private:
 
   fontpicker fontpickerTab;
   shadow *setShadow;
-  jsonWrapper *stringsWrapper;
+  const_data *data;
 
   void open_url(QString URL);
   void updateBottomBorderPosition(int windowHeight);
