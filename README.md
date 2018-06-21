@@ -5,14 +5,16 @@
 ## 🚩 Table of Contents
 - [About](#-about)
 - [Features](#-features)
-- [Usage](#-usage)
+- [Install](#-install)
 - [Examples](#-examples)
 - [License](#-license)
 
 ## 🎨 About
 
 Fontly is a desktop app that helps choosing perfect font for your next project. <br />
-It also let you preview how your favourite's font looks with different color and on unique background or even if It's behaves well independently to size!
+It also lets you preview how your favourite fonts looks with different colors and on unique backgrounds or even if they behaves well independently to size!
+
+With this beautiful app you can scroll through every locally installed font, change colors, size, text presence and even your life! And It's all for free! Isn't it great?
 
 ## ✨ Features
 
@@ -21,9 +23,11 @@ It also let you preview how your favourite's font looks with different color and
 * You can easily change text displaying in the list
 * Has search function to make you find your favourites fonts much easier
 
-## 🎮 Usage
+## 💾 Install
 
-With this beautiful app you can scroll through every locally installed font, change colors, size, text presence and even your life! And It's all for free! Isn't it great?
+1. <a href="http://www.mediafire.com/file/wzhb5u9uq44caeq/Fontly+Installer.exe">Download installer by clicking at this link</a>
+2. Run Fontly Installer
+3. Enjoy
 
 ## 💡 Examples
 
